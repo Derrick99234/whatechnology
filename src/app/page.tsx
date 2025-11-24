@@ -8,14 +8,14 @@ const App: React.FC = () => {
     <div className="bg-gray-50 flex items-center justify-center min-h-screen p-4">
       {/* Construction Card */}
       <div
-        className="max-w-xl w-full bg-white rounded-2xl shadow-2xl p-8 md:p-12 text-center 
-                           transition-all duration-500 hover:scale-[1.01] border-t-8 border-indigo-500"
+        className="max-w-3xl w-full bg-white rounded-2xl shadow-2xl p-8 md:p-12 text-center 
+                           transition-all duration-500 hover:scale-[1.01] border-t-8 border-yellow-500"
       >
         {/* Icon/Indicator */}
         <div className="mb-6">
           {/* Simple SVG of a wrench and hammer, replacing the image URL for self-containment */}
           <svg
-            className="w-20 h-20 text-indigo-500 mx-auto animate-pulse"
+            className="w-20 h-20 text-yellow-500 mx-auto animate-pulse"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -42,11 +42,11 @@ const App: React.FC = () => {
         </p>
 
         {/* Confirmed Launch Date Announcement */}
-        <div className="bg-green-100 p-8 rounded-xl border-4 border-dashed border-green-400 shadow-inner">
-          <p className="text-sm font-semibold text-green-700 uppercase mb-3 tracking-widest">
+        <div className="bg-gray-100 p-8 rounded-xl border-4 border-dashed border-gray-400 shadow-inner">
+          <p className="text-sm font-semibold text-gray-700 uppercase mb-3 tracking-widest">
             Launch Date
           </p>
-          <p className="text-5xl font-black text-green-900 leading-none">
+          <p className="text-5xl font-black text-gray-900 leading-none">
             January 1st
           </p>
         </div>
