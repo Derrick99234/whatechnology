@@ -45,7 +45,7 @@ interface Differentiator {
 const LogoBar: FC = () => {
   // Placeholder logos using placehold.co and a dark background for contrast
   const clientLogos: string[] = [
-    "https://cdn.pixabay.com/photo/2018/04/01/09/54/round-3280402_1280.jpg",
+    "/Client-and-Technology-1536x638.png",
     "https://cdn.pixabay.com/photo/2018/04/01/09/54/round-3280402_1280.jpg",
     "https://cdn.pixabay.com/photo/2018/04/01/09/54/round-3280402_1280.jpg",
     "https://cdn.pixabay.com/photo/2018/04/01/09/54/round-3280402_1280.jpg",

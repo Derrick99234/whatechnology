@@ -2,6 +2,8 @@ import React from "react";
 import Image from "next/image";
 // Importing Lucide icons for a modern look
 import { Award, TrendingUp, Briefcase } from "lucide-react";
+import ValueSection from "@/components/value-section";
+import Founder from "@/components/founder";
 
 // --- Type Definitions ---
 
@@ -207,6 +209,9 @@ const AboutUs: React.FC = () => {
           </div>
         </div>
       </section>
+
+      <ValueSection />
+      <Founder />
 
       {/* 3 & 4. Who We Are & Values Section (Two-Column Layout) */}
       <section className="py-20 bg-gray-900">
