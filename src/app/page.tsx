@@ -317,15 +317,15 @@ const MainContent: FC = () => {
           </p>
           <div className="flex justify-center space-x-4">
             <a
-              href="/demo"
-              className="flex items-center space-x-2 px-8 py-4 bg-indigo-500 text-white text-lg font-bold rounded-xl shadow-xl hover:bg-indigo-600 transition duration-300 transform hover:scale-105"
+              href="/contact"
+              className="flex items-center space-x-2 px-8 max-[395px]:px-6 py-4 bg-indigo-500 text-white font-bold rounded-xl shadow-xl hover:bg-indigo-600 transition duration-300 transform hover:scale-105"
             >
               <span>Request a Demo</span>
               <ArrowRight size={20} />
             </a>
             <a
               href="/solutions"
-              className="px-8 py-4 bg-gray-700 text-gray-200 text-lg font-semibold rounded-xl shadow-md hover:bg-gray-600 transition duration-300"
+              className="px-8 py-4 bg-gray-700 max-[395px]:px-6 text-gray-200 font-semibold rounded-xl shadow-md hover:bg-gray-600 transition duration-300"
             >
               Explore Solutions
             </a>
