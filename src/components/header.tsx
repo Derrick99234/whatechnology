@@ -65,11 +65,11 @@ export default function Header() {
           {/* Desktop Navigation Links */}
           <nav className="hidden md:flex space-x-6 items-center">
             <NavLink href="/services">Services</NavLink>
-            <NavLink href="/products">Products</NavLink>
+            <NavLink href="/solution">Solution</NavLink>
             <NavLink href="/about">About Us</NavLink>
             <NavLink href="/contact">Contact</NavLink>
             <a
-              href="/demo"
+              href="/contact"
               className="ml-4 px-4 py-2 bg-indigo-500 text-white font-semibold rounded-xl shadow-lg hover:bg-indigo-600 transition duration-300 ease-in-out transform hover:scale-[1.02]"
             >
               Start Demo
@@ -108,11 +108,11 @@ export default function Header() {
               Services
             </NavLink>
             <NavLink
-              href="/products"
+              href="/solution"
               isMobile
               onClick={() => setIsMenuOpen(false)}
             >
-              Products
+              Solution
             </NavLink>
             <NavLink
               href="/about"
@@ -129,7 +129,7 @@ export default function Header() {
               Contact
             </NavLink>
             <a
-              href="/demo"
+              href="/contact"
               className="mt-3 block w-full text-center px-4 py-2 bg-indigo-500 text-white font-semibold rounded-xl shadow-lg hover:bg-indigo-600 transition duration-300 ease-in-out"
             >
               Start Demo

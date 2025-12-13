@@ -18,8 +18,10 @@ interface StatCardProps {
 // StatCard for the About page
 const StatCard: React.FC<StatCardProps> = ({ value, label }) => (
   <div className="text-center">
-    <p className="text-5xl font-extrabold text-indigo-400 mb-1">{value}</p>
-    <p className="text-md font-medium text-gray-300">{label}</p>
+    <p className="md:text-5xl text-3xl font-extrabold text-indigo-400 mb-1">
+      {value}
+    </p>
+    <p className="md:text-md text-sm font-medium text-gray-300">{label}</p>
   </div>
 );
 
@@ -40,10 +42,6 @@ const JobListing: React.FC<{ title: string; location: string }> = ({
 // --- About Us Component (Full Implementation) ---
 
 const AboutUs: React.FC = () => {
-  // Dummy function for internal CTA clicks, since external navigation is removed
-  //   const dummySetView = (page: string) =>
-  //     console.log(`Navigating to ${page} (Link disabled in standalone view)`);
-
   return (
     <div className="text-white min-h-screen">
       <style>{`
@@ -129,18 +127,18 @@ const AboutUs: React.FC = () => {
         <div className="hero-overlay"></div>{" "}
         {/* Darker overlay for text readability */}
         <div className="max-w-6xl mx-auto px-4 text-center hero-content hero-content-wrapper">
-          <h1 className="text-6xl md:text-7xl font-extrabold text-white mb-6 leading-tight opacity-0">
+          <h1 className="text-5xl md:text-7xl font-extrabold text-white mb-6 leading-tight opacity-0">
             Pioneering <span className="text-indigo-400">Innovation</span> for a
             Better Future
           </h1>
-          <p className="text-2xl text-gray-300 max-w-4xl mx-auto mb-10 opacity-0">
+          <p className="text-xl text-gray-300 max-w-4xl mx-auto mb-10 opacity-0">
             At Whatechnology, our mission is to drive digital evolution through
             strategic partnership, cutting-edge cloud architecture, and
             human-centric design.
           </p>
           <button
             // onClick={() => dummySetView("leadership")}
-            className="bg-indigo-600 text-white px-10 py-4 text-lg font-bold rounded-xl shadow-2xl shadow-indigo-500/50 hover:bg-indigo-700 transition duration-300 transform hover:scale-[1.03] opacity-0"
+            className="bg-indigo-600 text-white px-10 py-4 font-bold rounded-xl shadow-2xl shadow-indigo-500/50 hover:bg-indigo-700 transition duration-300 transform hover:scale-[1.03] opacity-0"
           >
             See Our History & Leadership
           </button>
@@ -152,11 +150,6 @@ const AboutUs: React.FC = () => {
         <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left: Stats & Image Grid */}
           <div className="space-y-8">
-            {/* Team Photo Placeholder */}
-            {/* <PlaceholderImage
-              alt="Whatechnology Team"
-              className="w-full h-72 lg:h-96 rounded-2xl shadow-2xl"
-            /> */}
             <Image
               src="https://cdn.pixabay.com/photo/2020/04/08/16/32/keyboard-5017973_1280.jpg"
               alt="Team Collaboration"

@@ -363,7 +363,7 @@ const ProcessStep: React.FC<ProcessStepData> = ({
   title,
   description,
 }) => (
-  <div className="text-center p-4">
+  <div className="text-center p-4 max-[395px]:p-2">
     <div className="relative inline-block mb-4">
       <div className="w-12 h-12 flex items-center justify-center bg-indigo-500 text-white rounded-full text-xl font-bold shadow-lg">
         {step}
@@ -422,17 +422,6 @@ export default function App() {
                 empower businesses to excel in a rapidly changing digital
                 landscape by leveraging cutting-edge technology and a team of
                 global experts.
-              </p>
-            </div>
-
-            {/* Right Content (Description/CTA) */}
-            <div className="md:pl-10">
-              <p className="text-md text-indigo-200/80 mb-6">
-                At ExcelSolution, we specialize in bespoke software development
-                and strategic IT consulting. We deploy high-impact services that
-                power business growth, efficiency, and resilience. From rapid
-                prototyping to scalable enterprise solutions, our team is
-                committed to delivering measurable value every time.
               </p>
             </div>
           </div>
@@ -502,7 +491,7 @@ export default function App() {
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-12">
             Our simple <span className="text-indigo-400">4 step process</span>
           </h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-[395px]:gap-4">
             {processSteps.map((step) => (
               <ProcessStep key={step.step} {...step} />
             ))}
