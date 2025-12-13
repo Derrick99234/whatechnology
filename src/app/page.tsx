@@ -14,6 +14,7 @@ import {
 import { LucideIcon } from "lucide-react"; // Import LucideIcon type for props
 
 import Image from "next/image";
+import ContactUs from "./contact/page";
 
 // --- Interfaces for Data and Props ---
 
@@ -491,6 +492,7 @@ const App: FC = () => {
   return (
     <div className="min-h-screen antialiased">
       <MainContent />
+      <ContactUs />
     </div>
   );
 };

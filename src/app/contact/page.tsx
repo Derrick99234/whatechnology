@@ -1,6 +1,8 @@
 "use client";
 import React from "react";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
+import Orb from "@/components/Orb";
+import Particles from "@/components/Particles";
 
 export default function ContactUs() {
   const handleSubmit = (e: React.FormEvent) => {
@@ -10,7 +12,7 @@ export default function ContactUs() {
 
   return (
     <div className="text-white min-h-screen">
-      <section className="py-24 bg-gray-900 rounded-t-3xl border-b border-indigo-700/50">
+      <section className="py-24 bg-gray-900">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h1 className="text-6xl font-extrabold text-white mb-4">
             Let&apos;s <span className="text-indigo-400">Build Together</span>
@@ -22,11 +24,12 @@ export default function ContactUs() {
         </div>
       </section>
 
-      <section className="py-20 bg-gray-800 rounded-b-3xl">
+      <section className="py-20 bg-gray-800">
         <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-3 gap-12">
           {/* Contact Info (Left Column - 1/3 width) */}
           <div className="space-y-8 lg:col-span-1">
             <h2 className="text-3xl font-bold text-white mb-4">Get in Touch</h2>
+
             <div className="space-y-6">
               <div className="flex items-start space-x-4">
                 <Mail className="h-6 w-6 text-indigo-400 shrink-0 mt-1" />
@@ -51,6 +54,19 @@ export default function ContactUs() {
                   </p>
                 </div>
               </div>
+            </div>
+            {/* Background Orb */}
+            <div className="absolute top-0 left-0 w-full h-full opacity-90 pointer-events-none">
+              <Particles
+                particleColors={["#ffffff", "#ffffff"]}
+                particleCount={200}
+                particleSpread={10}
+                speed={0.1}
+                particleBaseSize={100}
+                moveParticlesOnHover={true}
+                alphaParticles={false}
+                disableRotation={false}
+              />
             </div>
 
             {/* Map Placeholder */}
@@ -118,41 +134,3 @@ export default function ContactUs() {
     </div>
   );
 }
-
-// --- Header Component (Minimal) ---
-
-const Header: React.FC = () => {
-  return (
-    <header className="w-full max-w-6xl mx-auto mb-6">
-      <div className="flex justify-start items-center p-4 bg-gray-900/80 backdrop-blur-sm rounded-xl border border-indigo-700/50 shadow-xl">
-        {/* Logo / Brand Name */}
-        <div className="text-2xl font-extrabold text-white">
-          <span className="text-indigo-400">Wha</span>technology
-        </div>
-      </div>
-    </header>
-  );
-};
-
-// Main App Component
-// const App = () => {
-//   return (
-//     <div className="min-h-screen bg-gray-800 font-sans antialiased flex flex-col p-4 md:p-8">
-//       <style>{`
-//                 /* Custom scrollbar for aesthetics */
-//                 ::-webkit-scrollbar { width: 8px; }
-//                 ::-webkit-scrollbar-track { background: #1f2937; }
-//                 ::-webkit-scrollbar-thumb { background: #4f46e5; border-radius: 4px; }
-//                 ::-webkit-scrollbar-thumb:hover { background: #6366f1; }
-//             `}</style>
-
-//       <Header />
-
-//       <main className="grow w-full mx-auto">
-//         <ContactUs />
-//       </main>
-//     </div>
-//   );
-// };
-
-// export default App;

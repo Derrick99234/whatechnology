@@ -1,5 +1,6 @@
 "use client";
 import { Menu, X } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { FC, useState } from "react";
 
@@ -50,6 +51,13 @@ export default function Header() {
               href="/"
               className="text-3xl font-extrabold tracking-wider text-indigo-400 hover:text-indigo-300 transition duration-300"
             >
+              <Image
+                src="/logo.png"
+                alt="Whatechnogy Logo"
+                width={50}
+                height={50}
+                className="inline-block mr-2 rounded-full"
+              />
               Whatechnogy
             </Link>
           </div>

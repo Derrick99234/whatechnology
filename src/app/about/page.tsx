@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Award, TrendingUp, Briefcase } from "lucide-react";
 import ValueSection from "@/components/value-section";
 import Founder from "@/components/founder";
+import ContactUs from "../contact/page";
 
 // --- Type Definitions ---
 
@@ -335,6 +336,7 @@ const App = () => {
 
       <main className="grow w-full mx-auto">
         <AboutUs />
+        <ContactUs />
       </main>
     </div>
   );

@@ -1,4 +1,5 @@
 import React from "react";
+import ContactUs from "../contact/page";
 
 // --- Type Definitions ---
 interface ServiceCardData {
@@ -489,20 +490,6 @@ export default function App() {
       </section>
 
       {/* 5. Client Testimonials (New Section) */}
-      <section id="testimonials" className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 text-center mb-12">
-            What Our <span className="text-indigo-600">Clients Say</span>
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {testimonialsData.map((testimonial, index) => (
-              <TestimonialCard key={index} {...testimonial} />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 6. Simple 4 Step Process (Existing Section) */}
       <section
         id="process"
         className="py-20 bg-gray-900"
@@ -522,6 +509,21 @@ export default function App() {
           </div>
         </div>
       </section>
+
+      {/* 6. Simple 4 Step Process (Existing Section) */}
+      <section id="testimonials" className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 text-center mb-12">
+            What Our <span className="text-indigo-600">Clients Say</span>
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {testimonialsData.map((testimonial, index) => (
+              <TestimonialCard key={index} {...testimonial} />
+            ))}
+          </div>
+        </div>
+      </section>
+      <ContactUs />
     </div>
   );
 }
