@@ -38,11 +38,12 @@ const NavLink: FC<NavLinkProps> = ({
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+  const [isSolutionOpen, setIsSolutionOpen] = useState<boolean>(false);
 
   // A helper component for navigation links
 
   return (
-    <header className="bg-gray-900 text-white shadow-xl sticky top-0 z-50">
+    <header className="bg-[#020617] text-white shadow-xl sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo/Company Name */}
@@ -65,7 +66,40 @@ export default function Header() {
           {/* Desktop Navigation Links */}
           <nav className="hidden md:flex space-x-6 items-center">
             <NavLink href="/services">Services</NavLink>
-            <NavLink href="/solution">Solution</NavLink>
+            <div className="relative group">
+              <button className="px-3 py-2 rounded-lg text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white transition duration-300">
+                Solution
+              </button>
+
+              {/* Dropdown */}
+              <div className="absolute left-0 mt-2 w-56 bg-gray-800 rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                <a
+                  href="/solution/ai-ml"
+                  className="block px-4 py-2 text-sm text-gray-200 hover:bg-indigo-600 rounded-t-xl"
+                >
+                  AI & ML
+                </a>
+                <a
+                  href="/solution/cloud-services"
+                  className="block px-4 py-2 text-sm text-gray-200 hover:bg-indigo-600"
+                >
+                  Cloud Services
+                </a>
+                <a
+                  href="/solution/cyber-security"
+                  className="block px-4 py-2 text-sm text-gray-200 hover:bg-indigo-600"
+                >
+                  Cyber Security
+                </a>
+                <a
+                  href="/solution/big-data"
+                  className="block px-4 py-2 text-sm text-gray-200 hover:bg-indigo-600 rounded-b-xl"
+                >
+                  Big Data
+                </a>
+              </div>
+            </div>
+
             <NavLink href="/about">About Us</NavLink>
             <NavLink href="/contact">Contact</NavLink>
             <a
@@ -107,13 +141,48 @@ export default function Header() {
             >
               Services
             </NavLink>
-            <NavLink
-              href="/solution"
-              isMobile
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Solution
-            </NavLink>
+            <div>
+              <button
+                onClick={() => setIsSolutionOpen(!isSolutionOpen)}
+                className="w-full text-left px-3 py-2 rounded-lg text-sm font-medium text-gray-200 hover:bg-indigo-600 hover:text-white transition"
+              >
+                Solution
+              </button>
+
+              {isSolutionOpen && (
+                <div className="ml-4 mt-1 space-y-1">
+                  <a
+                    href="/solution/ai-ml"
+                    className="block px-3 py-2 text-sm text-gray-300 hover:bg-gray-700 rounded"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    AI & ML
+                  </a>
+                  <a
+                    href="/solution/cloud-services"
+                    className="block px-3 py-2 text-sm text-gray-300 hover:bg-gray-700 rounded"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Cloud Services
+                  </a>
+                  <a
+                    href="/solution/cyber-security"
+                    className="block px-3 py-2 text-sm text-gray-300 hover:bg-gray-700 rounded"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Cyber Security
+                  </a>
+                  <a
+                    href="/solution/big-data"
+                    className="block px-3 py-2 text-sm text-gray-300 hover:bg-gray-700 rounded"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Big Data
+                  </a>
+                </div>
+              )}
+            </div>
+
             <NavLink
               href="/about"
               isMobile

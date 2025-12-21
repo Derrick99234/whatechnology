@@ -2,7 +2,6 @@
 import React, { useState, FC } from "react";
 import {
   Zap,
-  Cloud,
   Shield,
   Cpu,
   BarChart3,
@@ -10,11 +9,17 @@ import {
   ArrowRight,
   TrendingUp,
   Globe,
+  Code,
+  Cloud,
+  Terminal,
+  Briefcase,
 } from "lucide-react";
 import { LucideIcon } from "lucide-react"; // Import LucideIcon type for props
 
 import Image from "next/image";
 import ContactUs from "./contact/page";
+import Hero from "@/components/demoHeroSection";
+import WhyChooseSection from "@/components/why-choose-us";
 
 // --- Interfaces for Data and Props ---
 
@@ -34,6 +39,14 @@ interface Testimonial {
 interface FAQData {
   question: string;
   answer: string;
+}
+
+interface ServiceCardData {
+  id: number;
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+  details: string[];
 }
 
 interface Differentiator {
@@ -76,7 +89,7 @@ const LogoBar: FC = () => {
   );
 };
 
-// --- FAQ Item CompoFAQItemPropsnent for Accordion Functionality ---
+// --- FAQ Item Component for Accordion Functionality ---
 const FAQItem = ({ question, answer }: FAQData) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   return (
@@ -118,23 +131,23 @@ const FAQItem = ({ question, answer }: FAQData) => {
 
 // --- Expertise/About Section (Section 4 - Visually Rich) ---
 const ExpertiseSection: FC = () => (
-  <section className="py-20 bg-white dark:bg-gray-800">
+  <section className="py-20 bg-[#020617]">
     <div className="max-w-7xl mx-auto px-6 lg:px-8 grid md:grid-cols-2 gap-12 items-center">
       {/* Text Content Block */}
       <div className="md:order-1">
-        <span className="text-sm font-semibold text-indigo-600 dark:text-indigo-400 uppercase tracking-widest block mb-2">
+        <span className="text-sm font-semibold text-indigo-400 uppercase tracking-widest block mb-2">
           Deep Domain Knowledge
         </span>
-        <h2 className="text-4xl font-extrabold text-gray-900 dark:text-white mb-6">
+        <h2 className="text-4xl font-extrabold text-white mb-6">
           Our Experts are Your Competitive Edge
         </h2>
-        <p className="text-lg text-gray-600 dark:text-gray-300 mb-6">
+        <p className="text-lg text-gray-300 mb-6">
           We bring together certified engineers, data scientists, and security
-          analysts to tackle your hardest **digital transformation** challenges.
-          Unlike generic agencies, our focus is specialization in **AI, Cloud**,
-          and advanced infrastructure.
+          analysts to tackle your hardest digital transformation challenges.
+          Unlike generic agencies, our focus is specialization in AI, Cloud, and
+          advanced infrastructure.
         </p>
-        <ul className="space-y-4 text-gray-700 dark:text-gray-200">
+        <ul className="space-y-4 text-gray-200">
           <li className="flex items-start">
             <Cpu size={20} className="text-indigo-500 mr-3 mt-1 shrink-0" />
             <p>
@@ -198,38 +211,6 @@ const ExpertiseSection: FC = () => (
 
 // --- Content-Rich Main Content Component for Landing Page ---
 const MainContent: FC = () => {
-  const services: Service[] = [
-    {
-      icon: Cpu,
-      title: "Advanced AI & Machine Learning",
-      description:
-        "Leverage cutting-edge artificial intelligence models to automate processes, predict market trends, and personalize customer experiences.",
-      keywords: "AI, Machine Learning, Automation, Predictive Analytics",
-    },
-    {
-      icon: Cloud,
-      title: "Scalable Cloud Infrastructure",
-      description:
-        "Future-proof your business with robust, flexible, and fully managed cloud solutions (AWS, Azure, GCP). Ensure 99.99% uptime and global access.",
-      keywords: "Cloud Computing, AWS, Azure, GCP, Scalability",
-    },
-    {
-      icon: Shield,
-      title: "Proactive Cyber Security",
-      description:
-        "Protect your critical assets from emerging threats. Our security experts provide continuous monitoring, penetration testing, and compliance solutions.",
-      keywords: "Cyber Security, Threat Protection, Compliance, Pen Testing",
-    },
-    {
-      icon: BarChart3,
-      title: "Data Analytics & Insights",
-      description:
-        "Turn raw data into strategic business decisions. Implement powerful data visualization and reporting tools for measurable growth and clarity.",
-      keywords:
-        "Data Analytics, Business Intelligence, Visualization, Reporting",
-    },
-  ];
-
   // Updated Testimonials with a third entry
   const testimonials: Testimonial[] = [
     {
@@ -298,10 +279,134 @@ const MainContent: FC = () => {
     },
   ];
 
+  const services: Service[] = [
+    {
+      icon: Cpu,
+      title: "Advanced AI & Machine Learning",
+      description:
+        "Leverage cutting-edge artificial intelligence models to automate processes, predict market trends, and personalize customer experiences.",
+      keywords: "AI, Machine Learning, Automation, Predictive Analytics",
+    },
+    {
+      icon: Cloud,
+      title: "Scalable Cloud Infrastructure",
+      description:
+        "Future-proof your business with robust, flexible, and fully managed cloud solutions (AWS, Azure, GCP). Ensure 99.99% uptime and global access.",
+      keywords: "Cloud Computing, AWS, Azure, GCP, Scalability",
+    },
+    {
+      icon: Shield,
+      title: "Proactive Cyber Security",
+      description:
+        "Protect your critical assets from emerging threats. Our security experts provide continuous monitoring, penetration testing, and compliance solutions.",
+      keywords: "Cyber Security, Threat Protection, Compliance, Pen Testing",
+    },
+    {
+      icon: BarChart3,
+      title: "Data Analytics & Insights",
+      description:
+        "Turn raw data into strategic business decisions. Implement powerful data visualization and reporting tools for measurable growth and clarity.",
+      keywords:
+        "Data Analytics, Business Intelligence, Visualization, Reporting",
+    },
+  ];
+
+  const serviceCards: ServiceCardData[] = [
+    {
+      id: 1,
+      icon: <Code className="w-8 h-8 text-indigo-500" />,
+      title: "Software Development & Engineering",
+      description:
+        "We bring your vision to life with custom, scalable, and secure software solutions tailored to your unique business needs.",
+      details: [
+        "Full-stack development",
+        "Mobile App creation (iOS/Android)",
+        "Legacy system modernization",
+        "Performance optimization",
+      ],
+    },
+    {
+      id: 2,
+      icon: <Shield className="w-8 h-8 text-indigo-500" />,
+      title: "DevOps & Security",
+      description:
+        "Streamline your operations and fortify your infrastructure with automated deployment and best-in-class security practices.",
+      details: [
+        "CI/CD pipeline implementation",
+        "Cloud security hardening (AWS/Azure)",
+        "Vulnerability assessment & patching",
+        "Infrastructure as Code (IaC) setup",
+      ],
+    },
+    {
+      id: 3,
+      icon: <Cloud className="w-8 h-8 text-indigo-500" />,
+      title: "Cloud Services",
+      description:
+        "Harness the power of the cloud for scalability, agility, and reduced infrastructure costs. We handle migration, management, and optimization.",
+      details: [
+        "Cloud migration strategy",
+        "Managed cloud infrastructure",
+        "Cost optimization and governance",
+        "Serverless computing solutions",
+      ],
+    },
+    {
+      id: 4,
+      icon: <Terminal className="w-8 h-8 text-indigo-500" />,
+      title: "IT Consulting",
+      description:
+        "Strategic guidance to help you navigate complex technological challenges and align IT strategy with overall business objectives.",
+      details: [
+        "Digital transformation strategy",
+        "Technology roadmap development",
+        "Enterprise architecture review",
+        "Process automation consulting",
+      ],
+    },
+    {
+      id: 5,
+      icon: <Briefcase className="w-8 h-8 text-indigo-500" />,
+      title: "Technical Recruiting",
+      description:
+        "Find and onboard top-tier technical talent quickly and efficiently. We specialize in sourcing hard-to-find skillsets globally.",
+      details: [
+        "Headhunting for senior engineers",
+        "Volume hiring for startups",
+        "Contract-to-hire services",
+        "Talent market analysis",
+      ],
+    },
+  ];
+
+  const ServiceCard: React.FC<ServiceCardData> = ({
+    icon,
+    title,
+    description,
+    details,
+  }) => (
+    <div className="bg-white p-6 rounded-xl shadow-xl hover:shadow-indigo-500/50 transition duration-300 transform hover:-translate-y-1 h-full flex flex-col">
+      <div className="flex items-start mb-4">
+        {icon}
+        <h3 className="ml-4 text-xl font-bold text-gray-900">{title}</h3>
+      </div>
+      <p className="text-gray-600 mb-4 grow">{description}</p>
+      <ul className="space-y-2 text-sm text-gray-700">
+        {details.map((detail, index) => (
+          <li key={index} className="flex items-start">
+            <ArrowRight className="w-4 h-4 text-indigo-500 shrink-0 mt-1 mr-2" />
+            <span>{detail}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+
   return (
     <main className="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200">
       {/* 1. HERO SECTION (SEO H1) */}
-      <section className="bg-gray-900 py-20 md:py-32 border-b border-indigo-700">
+      <Hero />
+      {/* <section className="bg-gray-900 py-20 md:py-32 border-b border-indigo-700">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
           <span className="text-sm font-semibold text-indigo-400 uppercase tracking-widest block mb-4">
             Future-Proof Your Business
@@ -311,8 +416,8 @@ const MainContent: FC = () => {
             <span className="text-indigo-400">Whatechnogy</span>
           </h1>
           <p className="text-xl text-gray-300 mb-10 max-w-4xl mx-auto">
-            We deliver innovative and scalable **technology solutions** in **AI,
-            Cloud, and Cyber Security** to drive efficiency and competitive
+            We deliver innovative and scalable technology solutions in AI,
+            Cloud, and Cyber Security to drive efficiency and competitive
             advantage in the digital age.
           </p>
           <div className="flex justify-center space-x-4">
@@ -331,38 +436,43 @@ const MainContent: FC = () => {
             </a>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* 2. TRUST/LOGO BAR */}
-      <LogoBar />
+      {/* <LogoBar /> */}
 
-      {/* 3. CORE SERVICES SECTION */}
-      <section id="services" className="py-20 bg-white dark:bg-gray-800">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <h2 className="text-4xl font-extrabold text-center text-gray-900 dark:text-white mb-4">
-            Our Core Technology Expertise
-          </h2>
-          <p className="text-xl text-center text-gray-600 dark:text-gray-400 mb-16 max-w-3xl mx-auto">
-            As a leader in **technology solutions**, Whatechnogy focuses on the
-            pillars essential for modern **digital transformation** and
-            sustained business growth.
+      <section id="services" className="py-16 bg-gray-50 shadow-2xl">
+        <div className="flex items-center justify-around w-full py-16">
+          <div className="flex">
+            <Zap size={32} className="text-indigo-500 mr-3 shrink-0" />
+            <h2 className="text-4xl font-bold text-gray-900">
+              What We Do Best
+            </h2>
+          </div>
+          <p className="text-xl text-gray-600 max-w-3xl">
+            We have What it takes Whether you’re a fast-growing startup or an
+            enterprise organization
           </p>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {services.map((service, index) => (
-              <div
-                key={index}
-                className="p-8 bg-gray-50 dark:bg-gray-900 rounded-2xl shadow-lg border-t-4 border-indigo-500 transform hover:scale-[1.02] transition duration-300"
-              >
-                <service.icon size={36} className="text-indigo-500 mb-4" />
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
-                  {service.title}
-                </h3>
-                <p className="text-gray-600 dark:text-gray-400 text-base">
-                  {service.description}
-                </p>
-              </div>
+        </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {serviceCards.map((card) => (
+              <ServiceCard key={card.id} {...card} />
             ))}
+
+            {/* Custom CTA Card */}
+            <div className="bg-indigo-700/90 p-6 rounded-xl shadow-xl flex flex-col justify-center items-center text-center h-full">
+              <h3 className="text-2xl font-bold text-white mb-4">
+                Let&apos;s Talk
+              </h3>
+              <p className="text-indigo-200 mb-6">
+                Ready to extend your team or start a new project? Contact us
+                today to discuss your next technical challenge.
+              </p>
+              <button className="w-full py-3 px-6 bg-white text-indigo-700 font-semibold rounded-lg shadow-md hover:bg-gray-100 transition transform hover:scale-[1.02]">
+                Request Service
+              </button>
+            </div>
           </div>
         </div>
       </section>
@@ -371,7 +481,7 @@ const MainContent: FC = () => {
       <ExpertiseSection />
 
       {/* 5. WHY CHOOSE US / VALUE PROPOSITION (Sleek 3-Column Cards) */}
-      <section className="py-20 bg-gray-100 dark:bg-gray-700">
+      {/* <section className="py-20 bg-gray-100 dark:bg-gray-700">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-12">
             <span className="text-sm font-semibold text-indigo-600 dark:text-indigo-400 uppercase tracking-widest block mb-2">
@@ -406,31 +516,62 @@ const MainContent: FC = () => {
             ))}
           </div>
         </div>
+      </section> */}
+      <WhyChooseSection />
+
+      {/* 3. CORE SERVICES SECTION */}
+      <section id="services" className="py-20 bg-white dark:bg-gray-800">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <h2 className="text-4xl font-extrabold text-center text-gray-900 dark:text-white mb-4">
+            Our Core Technology Expertise
+          </h2>
+          <p className="text-xl text-center text-gray-600 dark:text-gray-400 mb-16 max-w-3xl mx-auto">
+            As a leader in technology solutions, Whatechnogy focuses on the
+            pillars essential for modern digital transformation and sustained
+            business growth.
+          </p>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {services.map((service, index) => (
+              <div
+                key={index}
+                className="p-8 bg-gray-50 dark:bg-gray-900 rounded-2xl shadow-lg border-t-4 border-indigo-500 transform hover:scale-[1.02] transition duration-300"
+              >
+                <service.icon size={36} className="text-indigo-500 mb-4" />
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
+                  {service.title}
+                </h3>
+                <p className="text-gray-600 dark:text-gray-400 text-base">
+                  {service.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* 6. TESTIMONIALS / SOCIAL PROOF */}
-      <section className="py-20 bg-white dark:bg-gray-900">
+      <section className="py-20 bg-gray-900">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <h2 className="text-4xl font-extrabold text-center text-gray-900 dark:text-white mb-4">
+          <h2 className="text-4xl font-extrabold text-center text-white mb-4">
             Hear From Our Clients
           </h2>
-          <p className="text-xl text-center text-gray-600 dark:text-gray-400 mb-12 max-w-3xl mx-auto">
-            Real results from businesses that achieved their **digital
-            transformation** goals with Whatechnogy.
+          <p className="text-xl text-center text-gray-300 mb-12 max-w-3xl mx-auto">
+            Real results from businesses that achieved their digital
+            transformation goals with Whatechnogy.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {testimonials.map((t, index) => (
               <div
                 key={index}
-                className="p-8 bg-indigo-50 dark:bg-gray-800 rounded-xl shadow-2xl border-t-8 border-indigo-500 transform hover:shadow-indigo-500/50 transition duration-300"
+                className="p-8 bg-gray-800 rounded-xl shadow-2xl border-t-8 border-indigo-500 transform hover:shadow-indigo-500/50 transition duration-300"
               >
                 <Quote size={32} className="text-indigo-500 mb-4 opacity-50" />
-                <p className="italic text-lg text-gray-700 dark:text-gray-300 mb-6 min-h-[120px]">
-                  &quot;{t.quote}&quot;{" "}
-                  {/* Using HTML entity for quote marks */}
+                <p className="italic text-lg text-gray-300 mb-6 min-h-[120px]">
+                  &ldquo;{t.quote}&rdquo;
                 </p>
-                <div className="font-semibold text-gray-900 dark:text-white pt-4 border-t border-gray-200 dark:border-gray-700">
+                <div className="font-semibold text-white pt-4 border-t border-gray-200 dark:border-gray-700">
                   {t.name}
                 </div>
                 <div className="text-sm text-indigo-600 dark:text-indigo-400">
@@ -472,8 +613,8 @@ const MainContent: FC = () => {
             Ready to Start Your Digital Journey?
           </h2>
           <p className="text-xl text-indigo-100 mb-8">
-            Connect with a **Whatechnogy** expert today to discuss your next
-            **Cloud** or **AI** project.
+            Connect with a Whatechnogy expert today to discuss your next Cloud
+            or AI project.
           </p>
           <a
             href="/contact"
