@@ -11,7 +11,7 @@ import {
   HardDrive,
 } from "lucide-react";
 import Image from "next/image";
-import ContactUs from "../contact/page";
+import ContactUs from "@/app/contact/page";
 
 /**
  * Cloud Service Item Type
@@ -60,22 +60,23 @@ const App = () => {
     <div className="bg-white min-h-screen font-sans overflow-x-hidden">
       {/* --- Hero Section --- */}
       <section className="relative pt-20 pb-32 lg:pt-32 lg:pb-48 bg-[#020617] overflow-hidden">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-11/12 bg-green-600/10 blur-[120px] rounded-full pointer-events-none" />
         {/* Abstract Background Gradients */}
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[120px] -mr-48 -mt-48"></div>
-        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#009ee3]/10 rounded-full blur-[100px] -ml-24 -mb-24"></div>
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-green-500/10 rounded-full blur-[100px] -ml-24 -mb-24"></div>
 
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="space-y-8">
               <div className="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-400/20 rounded-full px-4 py-2">
-                <Cloud className="w-4 h-4 text-[#009ee3]" />
-                <span className="text-[#009ee3] text-xs font-bold uppercase tracking-widest">
+                <Cloud className="w-4 h-4 text-green-500" />
+                <span className="text-green-500 text-xs font-bold uppercase tracking-widest">
                   Enterprise Cloud Solutions
                 </span>
               </div>
               <h1 className="text-5xl lg:text-7xl font-black text-white leading-[1.05]">
                 Scale Without Limits in the{" "}
-                <span className="text-[#009ee3]">Modern Cloud.</span>
+                <span className="text-green-500">Modern Cloud.</span>
               </h1>
               <p className="text-blue-100/70 text-lg lg:text-xl max-w-xl leading-relaxed font-medium">
                 Whatechnology architecting the future of infrastructure. We help
@@ -83,7 +84,7 @@ const App = () => {
                 with precision.
               </p>
               <div className="flex flex-wrap gap-4">
-                <button className="px-8 py-4 bg-[#009ee3] hover:bg-blue-400 text-white font-black rounded-xl transition-all flex items-center gap-2 shadow-xl shadow-blue-500/20">
+                <button className="px-8 py-4 bg-green-500 hover:bg-blue-400 text-white font-black rounded-xl transition-all flex items-center gap-2 shadow-xl shadow-blue-500/20">
                   Talk to a Cloud Expert <ArrowRight className="w-4 h-4" />
                 </button>
                 <button className="px-8 py-4 bg-white/5 hover:bg-white/10 text-white border border-white/10 font-black rounded-xl transition-all">
@@ -105,7 +106,7 @@ const App = () => {
                 <div className="absolute bottom-6 left-6 bg-white/95 backdrop-blur-md p-5 rounded-2xl shadow-xl border border-white/20 w-64 hidden sm:block">
                   <div className="flex items-center gap-3 mb-2">
                     <div className="p-2 bg-blue-100 rounded-lg">
-                      <Layers className="w-5 h-5 text-blue-600" />
+                      <Layers className="w-5 h-5 text-green-600" />
                     </div>
                     <p className="text-[10px] font-black uppercase text-slate-400">
                       Infrastructure Uptime
@@ -130,10 +131,10 @@ const App = () => {
       {/* --- Services Grid --- */}
       <section className="py-24 lg:py-32 max-w-7xl mx-auto px-6">
         <div className="text-center max-w-3xl mx-auto mb-20 space-y-4">
-          <h2 className="text-sm font-black uppercase tracking-[0.3em] text-[#009ee3]">
+          <h2 className="text-sm font-black uppercase tracking-[0.3em] text-green-500">
             End-to-End Cloud
           </h2>
-          <p className="text-4xl lg:text-5xl font-black text-[#001c4d]">
+          <p className="text-4xl lg:text-5xl font-black">
             Global Infrastructure for Digital Leaders
           </p>
           <div className="w-20 h-1.5 bg-blue-100 mx-auto rounded-full"></div>
@@ -145,12 +146,10 @@ const App = () => {
               key={index}
               className="group p-10 rounded-3xl bg-slate-50 border border-slate-100 hover:bg-white hover:shadow-2xl hover:shadow-blue-900/5 transition-all duration-300"
             >
-              <div className="w-16 h-16 rounded-2xl bg-white shadow-sm flex items-center justify-center mb-8 group-hover:bg-[#009ee3] transition-colors">
-                <service.icon className="w-8 h-8 text-[#009ee3] group-hover:text-white transition-colors" />
+              <div className="w-16 h-16 rounded-2xl bg-white shadow-sm flex items-center justify-center mb-8 group-hover:bg-green-500 transition-colors">
+                <service.icon className="w-8 h-8 text-green-500 group-hover:text-white transition-colors" />
               </div>
-              <h3 className="text-2xl font-black text-[#001c4d] mb-4">
-                {service.title}
-              </h3>
+              <h3 className="text-2xl font-black mb-4">{service.title}</h3>
               <p className="text-slate-500 leading-relaxed font-medium">
                 {service.description}
               </p>
@@ -184,7 +183,7 @@ const App = () => {
             </div>
 
             <div className="order-1 lg:order-2 space-y-10">
-              <h2 className="text-4xl lg:text-5xl font-black text-[#001c4d] leading-tight">
+              <h2 className="text-4xl lg:text-5xl font-black leading-tight">
                 Your Journey to a Resilient Infrastructure
               </h2>
               <div className="space-y-8">
@@ -206,13 +205,11 @@ const App = () => {
                   },
                 ].map((item, i) => (
                   <div key={i} className="flex gap-6 group">
-                    <span className="text-4xl font-black text-blue-100 group-hover:text-[#009ee3] transition-colors">
+                    <span className="text-4xl font-black text-blue-100 group-hover:text-green-500 transition-colors">
                       {item.step}
                     </span>
                     <div>
-                      <h4 className="text-xl font-bold text-[#001c4d] mb-1">
-                        {item.title}
-                      </h4>
+                      <h4 className="text-xl font-bold mb-1">{item.title}</h4>
                       <p className="text-slate-500 font-medium leading-relaxed">
                         {item.desc}
                       </p>
@@ -237,7 +234,7 @@ const App = () => {
             mission-critical cloud infrastructure.
           </p>
           <div className="pt-6">
-            <button className="px-12 py-6 bg-[#009ee3] hover:bg-blue-400 text-white font-black rounded-2xl shadow-2xl shadow-blue-500/40 transition-all text-lg hover:-translate-y-1">
+            <button className="px-12 py-6 bg-green-500 hover:bg-green-400 text-white font-black rounded-2xl shadow-2xl shadow-blue-500/40 transition-all text-lg hover:-translate-y-1">
               Start Your Cloud Migration
             </button>
           </div>

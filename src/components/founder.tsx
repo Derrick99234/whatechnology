@@ -94,10 +94,10 @@ const Founder: React.FC = () => {
       <div className="max-w-7xl mx-auto">
         {/* Header Content */}
         <div className="text-center mb-16">
-          <p className="text-base font-semibold text-indigo-600 uppercase tracking-wider">
+          <p className="text-base font-semibold text-green-600 uppercase tracking-wider">
             Leadership & Vision
           </p>
-          <h2 className="mt-2 text-4xl sm:text-5xl lg:text-6xl font-extrabold text-indigo-600 leading-tight">
+          <h2 className="mt-2 text-4xl sm:text-5xl lg:text-6xl font-extrabold text-green-600 leading-tight">
             Meet the Founder, {founder.name}
           </h2>
           <p className="mt-4 max-w-3xl mx-auto text-xl text-white">
@@ -121,15 +121,15 @@ const Founder: React.FC = () => {
                 height={400}
               />
               {/* Stylish Overlay Accent */}
-              <div className="absolute inset-0 bg-linear-to-t from-blue-900/50 via-blue-900/10 to-transparent"></div>
+              <div className="absolute inset-0 bg-linear-to-t from-green-900/50 via-green-900/10 to-transparent"></div>
             </div>
 
             {/* RIGHT COLUMN: Bio and Details */}
             <div className="p-8 md:p-12 flex flex-col justify-center">
-              <span className="text-sm font-medium text-indigo-600 uppercase tracking-widest mb-1">
+              <span className="text-sm font-medium text-green-600 uppercase tracking-widest mb-1">
                 Our Inspiration
               </span>
-              <h3 className="text-4xl font-extrabold text-indigo-600 mb-2">
+              <h3 className="text-4xl font-extrabold text-green-600 mb-2">
                 {founder.name}
               </h3>
               <p className="text-xl font-semibold text-white mb-6">
@@ -137,7 +137,7 @@ const Founder: React.FC = () => {
               </p>
 
               {/* Detailed Bio/Quote Block */}
-              <div className="bg-indigo-50 border-l-4 border-indigo-500 p-4 mb-6 rounded-lg shadow-inner">
+              <div className="bg-green-50 border-l-4 border-green-500 p-4 mb-6 rounded-lg shadow-inner">
                 <p className="text-gray-700 italic">
                   &ldquo;{founder.bio} My personal mission is to empower
                   businesses globally through technology that is both

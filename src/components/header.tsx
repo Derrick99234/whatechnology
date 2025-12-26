@@ -44,13 +44,15 @@ export default function Header() {
 
   return (
     <header className="bg-[#020617] text-white shadow-xl sticky top-0 z-50">
+      <div className="absolute top-[-120px] left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-green-500/20 blur-[140px] rounded-full pointer-events-none" />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo/Company Name */}
           <div className="shrink-0">
-            <Link
+            {/* <Link
               href="/"
-              className="text-3xl font-extrabold tracking-wider text-indigo-400 hover:text-indigo-300 transition duration-300"
+              className="text-3xl font-extrabold tracking-wider text-green-400 hover:text-green-300 transition duration-300"
             >
               <Image
                 src="/logo.png"
@@ -60,7 +62,7 @@ export default function Header() {
                 className="inline-block mr-2 rounded-full"
               />
               Whatechnogy
-            </Link>
+            </Link> */}
           </div>
 
           {/* Desktop Navigation Links */}
@@ -75,25 +77,25 @@ export default function Header() {
               <div className="absolute left-0 mt-2 w-56 bg-gray-800 rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
                 <a
                   href="/solution/ai-ml"
-                  className="block px-4 py-2 text-sm text-gray-200 hover:bg-indigo-600 rounded-t-xl"
+                  className="block px-4 py-2 text-sm text-gray-200 hover:bg-green-600 rounded-t-xl"
                 >
                   AI & ML
                 </a>
                 <a
                   href="/solution/cloud-services"
-                  className="block px-4 py-2 text-sm text-gray-200 hover:bg-indigo-600"
+                  className="block px-4 py-2 text-sm text-gray-200 hover:bg-green-600"
                 >
                   Cloud Services
                 </a>
                 <a
                   href="/solution/cyber-security"
-                  className="block px-4 py-2 text-sm text-gray-200 hover:bg-indigo-600"
+                  className="block px-4 py-2 text-sm text-gray-200 hover:bg-green-600"
                 >
                   Cyber Security
                 </a>
                 <a
                   href="/solution/big-data"
-                  className="block px-4 py-2 text-sm text-gray-200 hover:bg-indigo-600 rounded-b-xl"
+                  className="block px-4 py-2 text-sm text-gray-200 hover:bg-green-600 rounded-b-xl"
                 >
                   Big Data
                 </a>
@@ -104,7 +106,7 @@ export default function Header() {
             <NavLink href="/contact">Contact</NavLink>
             <a
               href="/contact"
-              className="ml-4 px-4 py-2 bg-indigo-500 text-white font-semibold rounded-xl shadow-lg hover:bg-indigo-600 transition duration-300 ease-in-out transform hover:scale-[1.02]"
+              className="ml-4 px-4 py-2 bg-green-500 text-white font-semibold rounded-xl shadow-lg hover:bg-green-600 transition duration-300 ease-in-out transform hover:scale-[1.02]"
             >
               Start Demo
             </a>
@@ -114,7 +116,7 @@ export default function Header() {
           <div className="md:hidden">
             <button
               type="button"
-              className="p-2 rounded-lg text-gray-400 hover:text-white hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition duration-150"
+              className="p-2 rounded-lg text-gray-400 hover:text-white hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 transition duration-150"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-controls="mobile-menu"
               aria-expanded={isMenuOpen ? "true" : "false"}

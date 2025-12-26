@@ -18,7 +18,7 @@ interface StatCardProps {
 // StatCard for the About page
 const StatCard: React.FC<StatCardProps> = ({ value, label }) => (
   <div className="text-center">
-    <p className="md:text-5xl text-3xl font-extrabold text-indigo-400 mb-1">
+    <p className="md:text-5xl text-3xl font-extrabold text-green-400 mb-1">
       {value}
     </p>
     <p className="md:text-md text-sm font-medium text-gray-300">{label}</p>
@@ -35,7 +35,7 @@ const JobListing: React.FC<{ title: string; location: string }> = ({
       <h4 className="font-bold text-white">{title}</h4>
       <p className="text-sm text-gray-400">{location}</p>
     </div>
-    <Briefcase className="h-5 w-5 text-indigo-400" />
+    <Briefcase className="h-5 w-5 text-green-400" />
   </div>
 );
 
@@ -44,101 +44,32 @@ const JobListing: React.FC<{ title: string; location: string }> = ({
 const AboutUs: React.FC = () => {
   return (
     <div className="text-white min-h-screen">
-      <style>{`
-        @keyframes fadeIn {
-          from {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-        .hero-content > * {
-          animation: fadeIn 0.8s ease-out forwards;
-        }
-        .hero-content h1 {
-          animation-delay: 0.1s;
-        }
-        .hero-content p {
-          animation-delay: 0.3s;
-        }
-        .hero-content button {
-          animation-delay: 0.5s;
-        }
-        .hero-section {
-          background: radial-gradient(
-            circle at center,
-            #1e293b 0%,
-            #0f172a 100%
-          );
-          position: relative;
-          overflow: hidden;
-        }
-        .hero-section::before {
-          content: "";
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          background: url('data:image/svg+xml;utf8,<svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="p" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M 0 0 L 100 0 L 100 100 L 0 100 Z" stroke-width="0" fill="none" /></pattern></defs><rect width="100%" height="100%" fill="url(%23p)" opacity="0.05"/></svg>')
-            repeat;
-          pointer-events: none;
-        }
-        .abstract-bg-image {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          opacity: 0.2; /* Subtly visible */
-          z-index: 0;
-        }
-        .hero-overlay {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          background: linear-gradient(
-            to bottom,
-            rgba(15, 23, 42, 0.7) 0%,
-            rgba(15, 23, 42, 0.9) 100%
-          );
-          z-index: 1;
-        }
-        .hero-content-wrapper {
-          position: relative;
-          z-index: 2;
-        }
-      `}</style>
       {/* 1. Enhanced Hero / Intro Section */}
-      <section className="hero-section py-32 md:py-48 rounded-t-3xl border-b border-indigo-700/50 relative">
+      <section className="relative overflow-hidden py-32 md:py-48 rounded-t-3xl">
         <Image
           src="https://cdn.pixabay.com/photo/2016/11/27/21/42/stock-1863880_1280.jpg"
           alt="Abstract technology background"
-          className="abstract-bg-image"
           fill
+          className="absolute inset-0 object-cover opacity-20 z-0"
           priority
         />
-        <div className="hero-overlay"></div>{" "}
+        <div className="absolute inset-0 bg-linear-to-b from-slate-900/70 to-slate-900/90 z-1" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full z-100 bg-green-600/10 blur-[120px] rounded-full pointer-events-none" />
+
         {/* Darker overlay for text readability */}
-        <div className="max-w-6xl mx-auto px-4 text-center hero-content hero-content-wrapper">
-          <h1 className="text-5xl md:text-7xl font-extrabold text-white mb-6 leading-tight opacity-0">
-            Pioneering <span className="text-indigo-400">Innovation</span> for a
+        <div className="relative z-10 max-w-6xl mx-auto px-4 text-center space-y-6">
+          <h1 className="text-5xl md:text-7xl font-extrabold text-white mb-6 leading-tight ">
+            Pioneering <span className="text-green-400">Innovation</span> for a
             Better Future
           </h1>
-          <p className="text-xl text-gray-300 max-w-4xl mx-auto mb-10 opacity-0">
+          <p className="text-xl text-gray-300 max-w-4xl mx-auto mb-10 ">
             At Whatechnology, our mission is to drive digital evolution through
             strategic partnership, cutting-edge cloud architecture, and
             human-centric design.
           </p>
           <button
             // onClick={() => dummySetView("leadership")}
-            className="bg-indigo-600 text-white px-10 py-4 font-bold rounded-xl shadow-2xl shadow-indigo-500/50 hover:bg-indigo-700 transition duration-300 transform hover:scale-[1.03] opacity-0"
+            className="bg-green-600 text-white px-10 py-4 font-bold rounded-xl shadow-2xl shadow-green-500/50 hover:bg-green-700 transition duration-300 transform hover:scale-[1.03] "
           >
             See Our History & Leadership
           </button>
@@ -146,7 +77,8 @@ const AboutUs: React.FC = () => {
       </section>
 
       {/* 2. Stats and Cloud Experts Section */}
-      <section className="py-16 bg-gray-800">
+      <section className="py-16  relative">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-11/12 bg-green-600/10 blur-[120px] rounded-full pointer-events-none" />
         <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left: Stats & Image Grid */}
           <div className="space-y-8">
@@ -157,7 +89,7 @@ const AboutUs: React.FC = () => {
               width={800}
               height={600}
             />
-            <div className="flex justify-around items-center bg-gray-900 p-6 rounded-2xl shadow-inner border border-indigo-800/50">
+            <div className="flex justify-around items-center bg-gray-900 p-6 rounded-2xl shadow-inner border border-green-800/50">
               <StatCard value="50+" label="Qualified Staff" />
               <StatCard value="200+" label="Projects Completed" />
               <StatCard value="100%" label="Client Satisfaction" />
@@ -166,12 +98,12 @@ const AboutUs: React.FC = () => {
 
           {/* Right: Cloud Experts Text */}
           <div className="lg:pl-8 space-y-6">
-            <h2 className="text-sm font-semibold text-indigo-400 uppercase tracking-widest">
+            <h2 className="text-sm font-semibold text-green-400 uppercase tracking-widest">
               Our Mission
             </h2>
             <h3 className="text-4xl font-extrabold text-white leading-tight">
               The Cloud Experts Driving Your{" "}
-              <span className="text-indigo-400">Digital Evolution</span>
+              <span className="text-green-400">Digital Evolution</span>
             </h3>
             <p className="text-gray-400 text-lg">
               Our team of certified engineers and strategic consultants is
@@ -182,7 +114,7 @@ const AboutUs: React.FC = () => {
 
             <div className="space-y-4 pt-4">
               <div className="flex items-start space-x-3">
-                <Award className="h-6 w-6 text-indigo-400 shrink-0 mt-1" />
+                <Award className="h-6 w-6 text-green-400 shrink-0 mt-1" />
                 <p className="text-gray-300">
                   <strong className="text-white">Full Coverage:</strong> We
                   provide end-to-end services from initial planning and
@@ -190,7 +122,7 @@ const AboutUs: React.FC = () => {
                 </p>
               </div>
               <div className="flex items-start space-x-3">
-                <TrendingUp className="h-6 w-6 text-indigo-400 shrink-0 mt-1" />
+                <TrendingUp className="h-6 w-6 text-green-400 shrink-0 mt-1" />
                 <p className="text-gray-300">
                   <strong className="text-white">
                     Future-Proof Architecture:
@@ -213,7 +145,7 @@ const AboutUs: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
             {/* Left Column - Who We Are */}
             <div className="lg:col-span-3 space-y-8">
-              <h2 className="text-4xl font-extrabold text-white mb-4 border-b border-indigo-500/30 pb-3">
+              <h2 className="text-4xl font-extrabold text-white mb-4 border-b border-green-500/30 pb-3">
                 Who We Are
               </h2>
               <div className="grid grid-cols-2 gap-4 h-48">
@@ -248,26 +180,26 @@ const AboutUs: React.FC = () => {
 
             {/* Right Column - Our Values */}
             <div className="lg:col-span-2 space-y-6">
-              <h2 className="text-4xl font-extrabold text-white mb-4 border-b border-indigo-500/30 pb-3">
+              <h2 className="text-4xl font-extrabold text-white mb-4 border-b border-green-500/30 pb-3">
                 Our Core Values
               </h2>
 
               <div className="space-y-4">
-                <div className="bg-gray-800 p-4 rounded-xl shadow-md border-l-4 border-indigo-500">
+                <div className="bg-gray-800 p-4 rounded-xl shadow-md border-l-4 border-green-500">
                   <h4 className="font-semibold text-white">Innovation</h4>
                   <p className="text-gray-400 text-sm">
                     We constantly seek new ways to solve old problems, staying
                     ahead of the technology curve.
                   </p>
                 </div>
-                <div className="bg-gray-800 p-4 rounded-xl shadow-md border-l-4 border-indigo-500">
+                <div className="bg-gray-800 p-4 rounded-xl shadow-md border-l-4 border-green-500">
                   <h4 className="font-semibold text-white">Integrity</h4>
                   <p className="text-gray-400 text-sm">
                     Honesty and ethical conduct guide every decision and
                     relationship we forge.
                   </p>
                 </div>
-                <div className="bg-gray-800 p-4 rounded-xl shadow-md border-l-4 border-indigo-500">
+                <div className="bg-gray-800 p-4 rounded-xl shadow-md border-l-4 border-green-500">
                   <h4 className="font-semibold text-white">Excellence</h4>
                   <p className="text-gray-400 text-sm">
                     We are committed to delivering the highest quality in every
@@ -305,7 +237,7 @@ const AboutUs: React.FC = () => {
 
           <button
             // onClick={() => dummySetView("contact")}
-            className="mt-10 bg-indigo-600 text-white px-8 py-3 rounded-xl shadow-lg hover:bg-indigo-700 transition duration-300 transform hover:scale-105 font-semibold"
+            className="mt-10 bg-green-600 text-white px-8 py-3 rounded-xl shadow-lg hover:bg-green-700 transition duration-300 transform hover:scale-105 font-semibold"
           >
             View All Open Roles
           </button>
@@ -318,7 +250,8 @@ const AboutUs: React.FC = () => {
 // Main App Component
 const App = () => {
   return (
-    <div className="min-h-screen bg-gray-800 font-sans antialiased flex flex-col p-4 md:p-8">
+    <div className="min-h-screen bg-[#020617] font-sans antialiased flex flex-col p-4 md:p-8 relative">
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-11/12 bg-green-600/10 blur-[120px] rounded-full pointer-events-none" />
       <style>{`
         /* Custom scrollbar for aesthetics */
         ::-webkit-scrollbar { width: 8px; }

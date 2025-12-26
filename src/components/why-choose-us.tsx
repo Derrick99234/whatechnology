@@ -32,8 +32,9 @@ const features = [
 
 const WhyChooseSection = () => {
   return (
-    <div className="w-full bg-white font-sans text-slate-900">
+    <div className="w-full bg-white font-sans text-slate-900 relative">
       {/* Top Section */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-green-600/10 blur-[120px] rounded-full pointer-events-none" />
       <div className="max-w-7xl mx-auto px-6 py-20 lg:py-32 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         {/* Visual Column */}
         <div className="relative order-2 lg:order-1">
@@ -61,10 +62,10 @@ const WhyChooseSection = () => {
           <div className="absolute -top-6 -left-4 md:-left-12 bg-white p-4 rounded-2xl shadow-xl border border-slate-100 hidden md:block w-52 animate-bounce-slow">
             <div className="flex items-center gap-3 mb-3">
               <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center">
-                <div className="w-6 h-6 rounded-full border-4 border-indigo-500 border-r-transparent animate-spin-slow"></div>
+                <div className="w-6 h-6 rounded-full border-4 border-green-500 border-r-transparent animate-spin-slow"></div>
               </div>
               <div>
-                <p className="text-[10px] text-indigo-400 font-bold uppercase">
+                <p className="text-[10px] text-green-400 font-bold uppercase">
                   Growth
                 </p>
                 <p className="text-sm font-bold text-slate-800">+124.5%</p>
@@ -72,7 +73,7 @@ const WhyChooseSection = () => {
             </div>
             <div className="flex items-end gap-1 h-12">
               <div className="flex-1 bg-slate-100 h-1/2 rounded-sm"></div>
-              <div className="flex-1 bg-indigo-400 h-3/4 rounded-sm"></div>
+              <div className="flex-1 bg-green-400 h-3/4 rounded-sm"></div>
               <div className="flex-1 bg-slate-100 h-1/3 rounded-sm"></div>
               <div className="flex-1 bg-[#020617] h-full rounded-sm"></div>
               <div className="flex-1 bg-slate-100 h-2/3 rounded-sm"></div>
@@ -144,16 +145,16 @@ const WhyChooseSection = () => {
         {/* Content Column */}
         <div className="order-1 lg:order-2 space-y-10">
           <div className="space-y-6">
-            <div className="inline-flex items-center gap-2 bg-indigo-50 border border-indigo-100 rounded-full px-4 py-1.5">
-              <span className="bg-indigo-500 text-white text-[10px] font-black px-2 py-0.5 rounded-full uppercase italic">
+            <div className="inline-flex items-center gap-2 bg-green-50 border border-green-100 rounded-full px-4 py-1.5">
+              <span className="bg-green-500 text-white text-[10px] font-black px-2 py-0.5 rounded-full uppercase italic">
                 New
               </span>
-              <span className="text-xs text-indigo-700 font-medium">
+              <span className="text-xs text-green-700 font-medium">
                 Monitoring is now available in Beta for Enterprise.
               </span>
             </div>
             <h2 className="text-5xl lg:text-6xl font-bold text-[#001c4d] leading-[1.1] tracking-tight">
-              Why Choose <span className="text-indigo-500">Whatechnology?</span>
+              Why Choose <span className="text-green-500">Whatechnology?</span>
             </h2>
           </div>
 
@@ -162,8 +163,8 @@ const WhyChooseSection = () => {
             {features.map((feature, idx) => (
               <div key={idx} className="flex gap-4 group">
                 <div className="shrink-0">
-                  <div className="w-6 h-6 rounded-full bg-indigo-100 flex items-center justify-center group-hover:bg-indigo-500 transition-colors">
-                    <CheckCircle2 className="w-4 h-4 text-indigo-500 group-hover:text-white transition-colors" />
+                  <div className="w-6 h-6 rounded-full bg-indigo-100 flex items-center justify-center group-hover:bg-green-500 transition-colors">
+                    <CheckCircle2 className="w-4 h-4 text-green-500 group-hover:text-white transition-colors" />
                   </div>
                 </div>
                 <div>
@@ -180,7 +181,7 @@ const WhyChooseSection = () => {
 
           {/* CTA Area */}
           <div className="flex flex-col sm:flex-row items-center gap-8 pt-4 border-t border-slate-100">
-            <button className="w-full sm:w-auto px-10 py-5 bg-[#020617] hover:bg-[#0087c2] text-white font-black rounded-xl shadow-xl shadow-blue-200 transition-all hover:-translate-y-1 active:scale-95">
+            <button className="w-full sm:w-auto px-10 py-5 bg-[#020617] hover:bg-green-500 text-white font-black rounded-xl shadow-xl shadow-blue-200 transition-all hover:-translate-y-1 active:scale-95">
               Get Started Today
             </button>
             <div className="flex items-center gap-4">
@@ -216,6 +217,7 @@ const WhyChooseSection = () => {
           className="bg-linear-to-br from-[#020617] to-[#001233] text-white py-32 px-6 relative"
           style={{ clipPath: "polygon(0 8%, 100% 0, 100% 100%, 0 100%)" }}
         >
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-11/12 bg-green-600/10 blur-[120px] rounded-full pointer-events-none" />
           <div className="max-w-4xl mx-auto text-center space-y-8">
             <div className="w-12 h-1 bg-white/20 mx-auto rounded-full"></div>
 

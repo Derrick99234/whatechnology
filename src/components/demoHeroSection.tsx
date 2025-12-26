@@ -21,20 +21,20 @@ const Hero: React.FC<HeroProps> = ({ className = "" }) => {
       className={`relative min-h-screen bg-[#020617] overflow-hidden flex flex-col items-center pt-20 pb-12 px-6 ${className}`}
     >
       {/* Subtle Background Glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-blue-600/10 blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-green-600/10 blur-[120px] rounded-full pointer-events-none" />
 
       {/* Content Container */}
       <div className="relative z-10 max-w-5xl w-full text-center flex flex-col items-center">
         {/* Top Badge */}
         <div className="mb-8 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-slate-300 backdrop-blur-sm">
-          <span className="flex h-2 w-2 rounded-full bg-blue-500" />
+          <span className="flex h-2 w-2 rounded-full bg-green-900" />
           Modern Digital Solutions
         </div>
 
         {/* Main Heading */}
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white mb-6 leading-[1.1]">
           Innovate faster with <br />
-          <span className="bg-linear-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">
+          <span className="bg-linear-to-r from-green-400 to-green-800 bg-clip-text text-transparent">
             Whatechnology
           </span>
         </h1>
@@ -81,7 +81,7 @@ const Hero: React.FC<HeroProps> = ({ className = "" }) => {
           </div>
 
           {/* Bottom Reflections/Glow */}
-          <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 w-[80%] h-20 bg-blue-500/20 blur-3xl rounded-full -z-10" />
+          <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 w-[80%] h-20 bg-green-500/20 blur-3xl rounded-full -z-10" />
         </div>
       </div>
 

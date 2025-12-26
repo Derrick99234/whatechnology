@@ -24,7 +24,7 @@ const FooterLink: FC<FooterLinkProps> = ({ href, children }) => (
   <li>
     <a
       href={href}
-      className="text-sm hover:text-indigo-400 transition duration-300 ease-in-out"
+      className="text-sm hover:text-green-400 transition duration-300 ease-in-out"
     >
       {children}
     </a>
@@ -35,13 +35,14 @@ export default function Footer() {
   const currentYear: number = new Date().getFullYear();
 
   return (
-    <footer className="bg-gray-900 text-gray-400">
+    <footer className="bg-gray-900 text-gray-400 relative">
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-11/12 bg-green-600/10 blur-[120px] rounded-full pointer-events-none" />
       <div className="max-w-7xl mx-auto py-12 px-6 lg:px-8">
         {/* Main Grid Section */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-10 border-b border-gray-700 pb-10">
           {/* Column 1: Company Info */}
           <div className="space-y-4 col-span-2 md:col-span-1">
-            <h3 className="text-2xl font-extrabold text-indigo-400">
+            <h3 className="text-2xl font-extrabold text-green-400">
               Whatechnogy
             </h3>
             <p className="text-sm">
@@ -98,7 +99,7 @@ export default function Footer() {
               <Mail size={16} className="text-gray-500" />
               <a
                 href="mailto:info@whatechnogy.com"
-                className="text-sm hover:text-indigo-400"
+                className="text-sm hover:text-green-400"
               >
                 info@whatechnogy.com
               </a>
@@ -115,11 +116,11 @@ export default function Footer() {
         <div className="mt-8 text-center">
           <p className="text-xs font-light text-gray-500">
             &copy; {currentYear} **Whatechnogy**. All rights reserved. |
-            <a href="/privacy" className="hover:text-indigo-400 mx-1">
+            <a href="/privacy" className="hover:text-green-400 mx-1">
               Privacy Policy
             </a>{" "}
             |
-            <a href="/terms" className="hover:text-indigo-400 mx-1">
+            <a href="/terms" className="hover:text-green-400 mx-1">
               Terms of Service
             </a>
           </p>

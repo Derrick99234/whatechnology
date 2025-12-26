@@ -33,7 +33,7 @@ const ProgressBar = ({
       <div className="w-full bg-gray-200 rounded-full h-2.5">
         {/* The Progress Fill (Blue Bar) */}
         <div
-          className="bg-indigo-500 h-2.5 rounded-full transition-all duration-1000 ease-out"
+          className="bg-green-500 h-2.5 rounded-full transition-all duration-1000 ease-out"
           style={{ width: `${percentage}%` }}
           aria-valuenow={percentage}
           aria-valuemin={0}
@@ -85,7 +85,7 @@ const ValueSection = () => {
 
             {/* CTA Button */}
             <button
-              className={`mt-6 px-10 py-4 bg-indigo-500 text-white text-lg font-semibold rounded-lg shadow-xl hover:bg-indigo-600 transition duration-300 transform hover:scale-[1.02] focus:outline-none focus:ring-4 focus:ring-cyan-300`}
+              className={`mt-6 px-10 py-4 bg-green-500 text-white text-lg font-semibold rounded-lg shadow-xl hover:bg-green-600 transition duration-300 transform hover:scale-[1.02] focus:outline-none focus:ring-4 focus:ring-cyan-300`}
             >
               Contact us
             </button>

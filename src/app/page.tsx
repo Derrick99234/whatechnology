@@ -55,54 +55,20 @@ interface Differentiator {
   description: string;
 }
 
-// --- Logo Bar Component (Section 2) ---
-const LogoBar: FC = () => {
-  // Placeholder logos using placehold.co and a dark background for contrast
-  const clientLogos: string[] = [
-    "/Client-and-Technology-1536x638.png",
-    "https://cdn.pixabay.com/photo/2018/04/01/09/54/round-3280402_1280.jpg",
-    "https://cdn.pixabay.com/photo/2018/04/01/09/54/round-3280402_1280.jpg",
-    "https://cdn.pixabay.com/photo/2018/04/01/09/54/round-3280402_1280.jpg",
-    "https://cdn.pixabay.com/photo/2018/04/01/09/54/round-3280402_1280.jpg",
-  ];
-
-  return (
-    <section className="bg-gray-900 dark:bg-gray-900 py-10 border-b border-gray-700">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <h3 className="text-sm font-semibold text-center text-gray-400 uppercase tracking-wider mb-8">
-          Trusted by industry leaders and disruptive startups
-        </h3>
-        <div className="flex flex-wrap justify-center items-center gap-x-12 gap-y-8">
-          {clientLogos.map((logo, index) => (
-            <Image
-              key={index}
-              width={120}
-              height={40}
-              className="h-8 grayscale brightness-150 opacity-70 hover:opacity-100 transition duration-300 transform hover:scale-105"
-              src={logo}
-              alt={`Client Logo ${index + 1}`}
-            />
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
-
 // --- FAQ Item Component for Accordion Functionality ---
 const FAQItem = ({ question, answer }: FAQData) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   return (
     <div className="border-b border-gray-200 dark:border-gray-700">
       <button
-        className="flex justify-between items-center w-full py-4 text-left font-semibold text-lg hover:text-indigo-600 transition-colors duration-200"
+        className="flex justify-between items-center w-full py-4 text-left font-semibold text-lg hover:text-green-600 transition-colors duration-200"
         onClick={() => setIsOpen(!isOpen)}
         aria-expanded={isOpen}
       >
         <span className="text-gray-900 dark:text-white">{question}</span>
         <span className="ml-6 shrink-0">
           <svg
-            className={`w-6 h-6 text-indigo-500 transform transition-transform duration-300 ${
+            className={`w-6 h-6 text-green-500 transform transition-transform duration-300 ${
               isOpen ? "rotate-180" : "rotate-0"
             }`}
             fill="none"
@@ -131,11 +97,12 @@ const FAQItem = ({ question, answer }: FAQData) => {
 
 // --- Expertise/About Section (Section 4 - Visually Rich) ---
 const ExpertiseSection: FC = () => (
-  <section className="py-20 bg-[#020617]">
+  <section className="py-20 bg-[#020617] relative">
+    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-11/12 bg-green-600/10 blur-[120px] rounded-full pointer-events-none" />
     <div className="max-w-7xl mx-auto px-6 lg:px-8 grid md:grid-cols-2 gap-12 items-center">
       {/* Text Content Block */}
       <div className="md:order-1">
-        <span className="text-sm font-semibold text-indigo-400 uppercase tracking-widest block mb-2">
+        <span className="text-sm font-semibold text-green-400 uppercase tracking-widest block mb-2">
           Deep Domain Knowledge
         </span>
         <h2 className="text-4xl font-extrabold text-white mb-6">
@@ -149,7 +116,7 @@ const ExpertiseSection: FC = () => (
         </p>
         <ul className="space-y-4 text-gray-200">
           <li className="flex items-start">
-            <Cpu size={20} className="text-indigo-500 mr-3 mt-1 shrink-0" />
+            <Cpu size={20} className="text-green-500 mr-3 mt-1 shrink-0" />
             <p>
               <strong>Certified Engineers:</strong> Top-tier certifications
               across AWS, Azure, and GCP.
@@ -158,7 +125,7 @@ const ExpertiseSection: FC = () => (
           <li className="flex items-start">
             <BarChart3
               size={20}
-              className="text-indigo-500 mr-3 mt-1 shrink-0"
+              className="text-green-500 mr-3 mt-1 shrink-0"
             />
             <p>
               <strong>Data-Driven:</strong> Every decision is backed by
@@ -166,7 +133,7 @@ const ExpertiseSection: FC = () => (
             </p>
           </li>
           <li className="flex items-start">
-            <Shield size={20} className="text-indigo-500 mr-3 mt-1 shrink-0" />
+            <Shield size={20} className="text-green-500 mr-3 mt-1 shrink-0" />
             <p>
               <strong>Zero-Trust Security:</strong> Implementing the latest
               protocols for maximum protection.
@@ -175,7 +142,7 @@ const ExpertiseSection: FC = () => (
         </ul>
         <a
           href="/team"
-          className="mt-8 inline-flex items-center space-x-2 text-indigo-500 font-semibold hover:text-indigo-600 transition duration-300"
+          className="mt-8 inline-flex items-center space-x-2 text-green-500 font-semibold hover:text-green-600 transition duration-300"
         >
           <span>Meet the Team</span>
           <ArrowRight size={18} />
@@ -314,7 +281,7 @@ const MainContent: FC = () => {
   const serviceCards: ServiceCardData[] = [
     {
       id: 1,
-      icon: <Code className="w-8 h-8 text-indigo-500" />,
+      icon: <Code className="w-8 h-8 text-green-500" />,
       title: "Software Development & Engineering",
       description:
         "We bring your vision to life with custom, scalable, and secure software solutions tailored to your unique business needs.",
@@ -327,7 +294,7 @@ const MainContent: FC = () => {
     },
     {
       id: 2,
-      icon: <Shield className="w-8 h-8 text-indigo-500" />,
+      icon: <Shield className="w-8 h-8 text-green-500" />,
       title: "DevOps & Security",
       description:
         "Streamline your operations and fortify your infrastructure with automated deployment and best-in-class security practices.",
@@ -340,7 +307,7 @@ const MainContent: FC = () => {
     },
     {
       id: 3,
-      icon: <Cloud className="w-8 h-8 text-indigo-500" />,
+      icon: <Cloud className="w-8 h-8 text-green-500" />,
       title: "Cloud Services",
       description:
         "Harness the power of the cloud for scalability, agility, and reduced infrastructure costs. We handle migration, management, and optimization.",
@@ -353,7 +320,7 @@ const MainContent: FC = () => {
     },
     {
       id: 4,
-      icon: <Terminal className="w-8 h-8 text-indigo-500" />,
+      icon: <Terminal className="w-8 h-8 text-green-500" />,
       title: "IT Consulting",
       description:
         "Strategic guidance to help you navigate complex technological challenges and align IT strategy with overall business objectives.",
@@ -366,7 +333,7 @@ const MainContent: FC = () => {
     },
     {
       id: 5,
-      icon: <Briefcase className="w-8 h-8 text-indigo-500" />,
+      icon: <Briefcase className="w-8 h-8 text-green-500" />,
       title: "Technical Recruiting",
       description:
         "Find and onboard top-tier technical talent quickly and efficiently. We specialize in sourcing hard-to-find skillsets globally.",
@@ -385,7 +352,7 @@ const MainContent: FC = () => {
     description,
     details,
   }) => (
-    <div className="bg-white p-6 rounded-xl shadow-xl hover:shadow-indigo-500/50 transition duration-300 transform hover:-translate-y-1 h-full flex flex-col">
+    <div className="bg-white p-6 rounded-xl shadow-xl hover:shadow-green-500/50 transition duration-300 transform hover:-translate-y-1 h-full flex flex-col">
       <div className="flex items-start mb-4">
         {icon}
         <h3 className="ml-4 text-xl font-bold text-gray-900">{title}</h3>
@@ -394,7 +361,7 @@ const MainContent: FC = () => {
       <ul className="space-y-2 text-sm text-gray-700">
         {details.map((detail, index) => (
           <li key={index} className="flex items-start">
-            <ArrowRight className="w-4 h-4 text-indigo-500 shrink-0 mt-1 mr-2" />
+            <ArrowRight className="w-4 h-4 text-green-500 shrink-0 mt-1 mr-2" />
             <span>{detail}</span>
           </li>
         ))}
@@ -444,14 +411,14 @@ const MainContent: FC = () => {
       <section id="services" className="py-16 bg-gray-50 shadow-2xl">
         <div className="flex items-center justify-around w-full py-16">
           <div className="flex">
-            <Zap size={32} className="text-indigo-500 mr-3 shrink-0" />
+            <Zap size={32} className="text-green-500 mr-3 shrink-0" />
             <h2 className="text-4xl font-bold text-gray-900">
               What We Do Best
             </h2>
           </div>
           <p className="text-xl text-gray-600 max-w-3xl">
-            We have What it takes Whether you’re a fast-growing startup or an
-            enterprise organization
+            We have What it takes Whether you&apos;re a fast-growing startup or
+            an enterprise organization
           </p>
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -461,15 +428,15 @@ const MainContent: FC = () => {
             ))}
 
             {/* Custom CTA Card */}
-            <div className="bg-indigo-700/90 p-6 rounded-xl shadow-xl flex flex-col justify-center items-center text-center h-full">
+            <div className="bg-gr-700/90 p-6 rounded-xl shadow-xl flex flex-col justify-center items-center text-center h-full">
               <h3 className="text-2xl font-bold text-white mb-4">
                 Let&apos;s Talk
               </h3>
-              <p className="text-indigo-200 mb-6">
+              <p className="text-gr-200 mb-6">
                 Ready to extend your team or start a new project? Contact us
                 today to discuss your next technical challenge.
               </p>
-              <button className="w-full py-3 px-6 bg-white text-indigo-700 font-semibold rounded-lg shadow-md hover:bg-gray-100 transition transform hover:scale-[1.02]">
+              <button className="w-full py-3 px-6 bg-white text-gr-700 font-semibold rounded-lg shadow-md hover:bg-gray-100 transition transform hover:scale-[1.02]">
                 Request Service
               </button>
             </div>
@@ -535,9 +502,9 @@ const MainContent: FC = () => {
             {services.map((service, index) => (
               <div
                 key={index}
-                className="p-8 bg-gray-50 dark:bg-gray-900 rounded-2xl shadow-lg border-t-4 border-indigo-500 transform hover:scale-[1.02] transition duration-300"
+                className="p-8 bg-gray-50 dark:bg-gray-900 rounded-2xl shadow-lg border-t-4 border-green-500 transform hover:scale-[1.02] transition duration-300"
               >
-                <service.icon size={36} className="text-indigo-500 mb-4" />
+                <service.icon size={36} className="text-green-500 mb-4" />
                 <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
                   {service.title}
                 </h3>
@@ -551,7 +518,8 @@ const MainContent: FC = () => {
       </section>
 
       {/* 6. TESTIMONIALS / SOCIAL PROOF */}
-      <section className="py-20 bg-gray-900">
+      <section className="py-20 bg-gray-900 relative">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-11/12 bg-green-600/10 blur-[120px] rounded-full pointer-events-none" />
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <h2 className="text-4xl font-extrabold text-center text-white mb-4">
             Hear From Our Clients
@@ -565,16 +533,16 @@ const MainContent: FC = () => {
             {testimonials.map((t, index) => (
               <div
                 key={index}
-                className="p-8 bg-gray-800 rounded-xl shadow-2xl border-t-8 border-indigo-500 transform hover:shadow-indigo-500/50 transition duration-300"
+                className="p-8 bg-gray-800 rounded-xl shadow-2xl border-t-8 border-green-500 transform hover:shadow-green-500/50 transition duration-300"
               >
-                <Quote size={32} className="text-indigo-500 mb-4 opacity-50" />
+                <Quote size={32} className="text-green-500 mb-4 opacity-50" />
                 <p className="italic text-lg text-gray-300 mb-6 min-h-[120px]">
                   &ldquo;{t.quote}&rdquo;
                 </p>
                 <div className="font-semibold text-white pt-4 border-t border-gray-200 dark:border-gray-700">
                   {t.name}
                 </div>
-                <div className="text-sm text-indigo-600 dark:text-indigo-400">
+                <div className="text-sm text-green-600 dark:text-green-400">
                   {t.title}
                 </div>
               </div>
@@ -584,7 +552,8 @@ const MainContent: FC = () => {
       </section>
 
       {/* 7. FREQUENTLY ASKED QUESTIONS SECTION */}
-      <section className="py-20 bg-gray-100 dark:bg-gray-800">
+      <section className="py-20 bg-gray-100 dark:bg-gray-800 relative">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-11/12 bg-green-600/10 blur-[120px] rounded-full pointer-events-none" />
         <div className="max-w-4xl mx-auto px-6 lg:px-8">
           <h2 className="text-4xl font-extrabold text-center text-gray-900 dark:text-white mb-4">
             Frequently Asked Questions
@@ -607,18 +576,18 @@ const MainContent: FC = () => {
       </section>
 
       {/* 8. FINAL CTA SECTION */}
-      <section className="bg-indigo-600 py-16">
+      <section className="bg-green-600 py-16">
         <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
           <h2 className="text-4xl font-extrabold text-white mb-4">
             Ready to Start Your Digital Journey?
           </h2>
-          <p className="text-xl text-indigo-100 mb-8">
+          <p className="text-xl text-green-100 mb-8">
             Connect with a Whatechnogy expert today to discuss your next Cloud
             or AI project.
           </p>
           <a
             href="/contact"
-            className="inline-block px-10 py-4 bg-white text-indigo-600 text-xl font-bold rounded-xl shadow-2xl hover:bg-gray-100 transition duration-300 transform hover:scale-105"
+            className="inline-block px-10 py-4 bg-white text-green-600 text-xl font-bold rounded-xl shadow-2xl hover:bg-gray-100 transition duration-300 transform hover:scale-105"
           >
             Contact Our Team
           </a>

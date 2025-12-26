@@ -1,93 +1,93 @@
 import React from "react";
 import {
+  BrainCircuit,
+  Cpu,
+  Database,
+  LineChart,
+  Bot,
   ShieldCheck,
-  Lock,
-  Eye,
-  ShieldAlert,
-  Terminal,
-  UserCheck,
   ArrowRight,
-  Fingerprint,
-  Activity,
+  Sparkles,
 } from "lucide-react";
 import Image from "next/image";
-import ContactUs from "../contact/page";
+import ContactUs from "../../contact/page";
 
 /**
- * Cyber Security Service Item Type
+ * AI & ML Service Item Type
  */
-const securityServices = [
+const aiServices = [
   {
-    title: "Managed Detection & Response",
+    title: "Generative AI Solutions",
     description:
-      "24/7 proactive monitoring and rapid incident response to neutralize threats before they impact your business operations.",
-    icon: Activity,
+      "Custom LLM implementation and fine-tuning to automate content creation and complex reasoning tasks tailored to your data.",
+    icon: Sparkles,
   },
   {
-    title: "Zero Trust Architecture",
+    title: "Predictive Analytics",
     description:
-      "Implement a modern security framework that never trusts and always verifies every request, regardless of origin.",
-    icon: UserCheck,
+      "Transform historical data into future foresight. We build models that forecast trends, demand, and potential risks.",
+    icon: LineChart,
   },
   {
-    title: "Penetration Testing",
+    title: "Computer Vision",
     description:
-      "Rigorous ethical hacking to identify and patch vulnerabilities in your applications, networks, and cloud infrastructure.",
-    icon: Terminal,
+      "Automate visual inspection, object detection, and facial recognition with high-accuracy neural networks.",
+    icon: Cpu,
   },
   {
-    title: "Threat Intelligence",
+    title: "NLP & Chatbots",
     description:
-      "Real-time global data analysis to predict and prepare for emerging cyber threats specific to your industry sector.",
-    icon: Eye,
+      "Build sophisticated conversational interfaces that understand context, sentiment, and intent across multiple languages.",
+    icon: Bot,
   },
   {
-    title: "Endpoint Protection",
+    title: "Data Engineering",
     description:
-      "Securing every device in your network with advanced AI-driven antivirus and mobile device management solutions.",
-    icon: ShieldAlert,
+      "The foundation of AI. We build robust pipelines to ensure your models are fed high-quality, real-time data.",
+    icon: Database,
   },
   {
-    title: "Identity & Access Management",
+    title: "Responsible AI & Ethics",
     description:
-      "Streamline secure access with multi-factor authentication and role-based controls tailored to your workforce.",
-    icon: Fingerprint,
+      "Implementing bias detection and security protocols to ensure your AI solutions are transparent and compliant.",
+    icon: ShieldCheck,
   },
 ];
 
-const Security = () => {
+const AIPage = () => {
   return (
-    <div className="bg-white min-h-screen font-sans overflow-x-hidden">
+    <div className="bg-white font-sans relative">
       {/* --- Hero Section --- */}
-      <section className="relative pt-20 pb-32 lg:pt-32 lg:pb-48 bg-[#001c4d] overflow-hidden">
+      <section className="relative pt-20 pb-32 lg:pt-32 lg:pb-48 bg-[#020617] overflow-hidden">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-11/12 bg-green-600/10 blur-[120px] rounded-full pointer-events-none" />
         {/* Abstract Background Gradients */}
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-red-500/5 rounded-full blur-[120px] -mr-48 -mt-48"></div>
-        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#009ee3]/10 rounded-full blur-[100px] -ml-24 -mb-24"></div>
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[120px] -mr-48 -mt-48"></div>
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-green-500/10 rounded-full blur-[100px] -ml-24 -mb-24"></div>
 
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="space-y-8">
               <div className="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-400/20 rounded-full px-4 py-2">
-                <Lock className="w-4 h-4 text-[#009ee3]" />
-                <span className="text-[#009ee3] text-xs font-bold uppercase tracking-widest">
-                  Advanced Defense Systems
+                <BrainCircuit className="w-4 h-4 text-green-500" />
+                <span className="text-green-500 text-xs font-bold uppercase tracking-widest">
+                  Next-Gen Intelligence
                 </span>
               </div>
               <h1 className="text-5xl lg:text-7xl font-black text-white leading-[1.05]">
-                Fortify Your Digital{" "}
-                <span className="text-[#009ee3]">Enterprise.</span>
+                Empowering Business with{" "}
+                <span className="text-green-500">Applied AI.</span>
               </h1>
               <p className="text-blue-100/70 text-lg lg:text-xl max-w-xl leading-relaxed font-medium">
-                Whatechnology provides ironclad security for the modern age. We
-                protect your data, your reputation, and your future with
-                intelligence-led security solutions.
+                Whatechnology helps enterprises move beyond the hype. We build
+                scalable, production-ready AI and ML models that drive actual
+                business value.
               </p>
               <div className="flex flex-wrap gap-4">
-                <button className="px-8 py-4 bg-[#009ee3] hover:bg-blue-400 text-white font-black rounded-xl transition-all flex items-center gap-2 shadow-xl shadow-blue-500/20">
-                  Request Security Audit <ArrowRight className="w-4 h-4" />
+                <button className="px-8 py-4 bg-green-500 hover:bg-green-400 text-white font-black rounded-xl transition-all flex items-center gap-2 shadow-xl shadow-blue-500/20">
+                  Launch Your Project <ArrowRight className="w-4 h-4" />
                 </button>
                 <button className="px-8 py-4 bg-white/5 hover:bg-white/10 text-white border border-white/10 font-black rounded-xl transition-all">
-                  Incident Response
+                  View Case Studies
                 </button>
               </div>
             </div>
@@ -97,28 +97,28 @@ const Security = () => {
                 <Image
                   width={400}
                   height={400}
-                  src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1000"
-                  alt="Cyber Security Operations"
+                  src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=1000"
+                  alt="AI Visualization"
                   className="w-full h-full object-cover"
                 />
                 {/* Floating Insight Card */}
                 <div className="absolute bottom-6 left-6 bg-white/95 backdrop-blur-md p-5 rounded-2xl shadow-xl border border-white/20 w-64 hidden sm:block">
                   <div className="flex items-center gap-3 mb-2">
-                    <div className="p-2 bg-red-100 rounded-lg">
-                      <ShieldCheck className="w-5 h-5 text-red-600" />
+                    <div className="p-2 bg-blue-100 rounded-lg">
+                      <LineChart className="w-5 h-5 text-green-600" />
                     </div>
                     <p className="text-[10px] font-black uppercase text-slate-400">
-                      Security Posture
+                      Efficiency Gain
                     </p>
                   </div>
                   <p className="text-2xl font-black text-slate-900">
-                    Optimized{" "}
+                    +42%{" "}
                     <span className="text-sm font-normal text-slate-500">
-                      A+
+                      Avg.
                     </span>
                   </p>
                   <div className="mt-3 h-1 w-full bg-slate-100 rounded-full overflow-hidden">
-                    <div className="h-full bg-emerald-500 w-[94%]"></div>
+                    <div className="h-full bg-green-500 w-[78%]"></div>
                   </div>
                 </div>
               </div>
@@ -130,27 +130,25 @@ const Security = () => {
       {/* --- Services Grid --- */}
       <section className="py-24 lg:py-32 max-w-7xl mx-auto px-6">
         <div className="text-center max-w-3xl mx-auto mb-20 space-y-4">
-          <h2 className="text-sm font-black uppercase tracking-[0.3em] text-[#009ee3]">
-            Strategic Defense
+          <h2 className="text-sm font-black uppercase tracking-[0.3em] text-green-500">
+            Our Expertise
           </h2>
-          <p className="text-4xl lg:text-5xl font-black text-[#001c4d]">
-            Resilience Against Evolving Threats
+          <p className="text-4xl lg:text-5xl font-black">
+            Strategic ML Solutions for Complex Challenges
           </p>
           <div className="w-20 h-1.5 bg-blue-100 mx-auto rounded-full"></div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {securityServices.map((service, index) => (
+          {aiServices.map((service, index) => (
             <div
               key={index}
               className="group p-10 rounded-3xl bg-slate-50 border border-slate-100 hover:bg-white hover:shadow-2xl hover:shadow-blue-900/5 transition-all duration-300"
             >
-              <div className="w-16 h-16 rounded-2xl bg-white shadow-sm flex items-center justify-center mb-8 group-hover:bg-[#009ee3] transition-colors">
-                <service.icon className="w-8 h-8 text-[#009ee3] group-hover:text-white transition-colors" />
+              <div className="w-16 h-16 rounded-2xl bg-white shadow-sm flex items-center justify-center mb-8 group-hover:bg-green-500 transition-colors">
+                <service.icon className="w-8 h-8 text-green-500 group-hover:text-white transition-colors" />
               </div>
-              <h3 className="text-2xl font-black text-[#001c4d] mb-4">
-                {service.title}
-              </h3>
+              <h3 className="text-2xl font-black mb-4">{service.title}</h3>
               <p className="text-slate-500 leading-relaxed font-medium">
                 {service.description}
               </p>
@@ -175,8 +173,8 @@ const Security = () => {
                 <Image
                   width={400}
                   height={400}
-                  src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80&w=800"
-                  alt="Cyber Security Analysis"
+                  src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=800"
+                  alt="Cyber Security & AI"
                   className="w-full h-auto object-cover"
                 />
               </div>
@@ -184,35 +182,33 @@ const Security = () => {
             </div>
 
             <div className="order-1 lg:order-2 space-y-10">
-              <h2 className="text-4xl lg:text-5xl font-black text-[#001c4d] leading-tight">
-                Our Multi-Layered Security Methodology
+              <h2 className="text-4xl lg:text-5xl font-black leading-tight">
+                How we integrate AI into your ecosystem
               </h2>
               <div className="space-y-8">
                 {[
                   {
                     step: "01",
-                    title: "Gap Analysis & Audit",
-                    desc: "A comprehensive review of your current infrastructure to identify hidden entry points and compliance risks.",
+                    title: "Strategy & Discovery",
+                    desc: "We identify high-impact AI opportunities within your existing business logic and tech stack.",
                   },
                   {
                     step: "02",
-                    title: "Hardening & Mitigation",
-                    desc: "Deploying ironclad defenses, encryption protocols, and monitoring tools to eliminate discovered gaps.",
+                    title: "POC & Rapid Prototyping",
+                    desc: "Validating the model with a limited dataset to ensure feasibility, accuracy, and ROI.",
                   },
                   {
                     step: "03",
-                    title: "Continuous Vigilance",
-                    desc: "Ongoing management and threat hunting to ensure your organization stays ahead of new attack vectors.",
+                    title: "Production Deployment",
+                    desc: "Scaling the model and integrating it seamlessly into your production environment.",
                   },
                 ].map((item, i) => (
                   <div key={i} className="flex gap-6 group">
-                    <span className="text-4xl font-black text-blue-100 group-hover:text-[#009ee3] transition-colors">
+                    <span className="text-4xl font-black text-blue-100 group-hover:text-green-500 transition-colors">
                       {item.step}
                     </span>
                     <div>
-                      <h4 className="text-xl font-bold text-[#001c4d] mb-1">
-                        {item.title}
-                      </h4>
+                      <h4 className="text-xl font-bold mb-1">{item.title}</h4>
                       <p className="text-slate-500 font-medium leading-relaxed">
                         {item.desc}
                       </p>
@@ -226,19 +222,19 @@ const Security = () => {
       </section>
 
       {/* --- CTA Section --- */}
-      <section className="py-32 bg-[#001c4d] text-white text-center px-6 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-[#009ee3]/10 rounded-full blur-3xl"></div>
+      <section className="py-32 bg-[#020617] text-white text-center px-6 relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
         <div className="max-w-3xl mx-auto space-y-10 relative z-10">
           <h2 className="text-4xl lg:text-6xl font-black leading-tight">
-            Don&apos;t Wait for a Breach to Act.
+            Ready to build the future of your business?
           </h2>
           <p className="text-blue-100/70 text-xl font-medium">
-            Whatechnology secures your growth by neutralizing risks before they
-            become disasters. Protect your data today.
+            Partner with Whatechnology to turn your data into your most powerful
+            competitive advantage.
           </p>
           <div className="pt-6">
-            <button className="px-12 py-6 bg-[#009ee3] hover:bg-blue-400 text-white font-black rounded-2xl shadow-2xl shadow-blue-500/40 transition-all text-lg hover:-translate-y-1">
-              Consult a Security Advisor
+            <button className="px-12 py-6 bg-green-500 hover:bg-green-400 text-white font-black rounded-2xl shadow-2xl shadow-blue-500/40 transition-all text-lg hover:-translate-y-1">
+              Book an AI Strategy Session
             </button>
           </div>
         </div>
@@ -248,4 +244,4 @@ const Security = () => {
   );
 };
 
-export default Security;
+export default AIPage;
