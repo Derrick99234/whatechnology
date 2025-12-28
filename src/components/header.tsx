@@ -24,7 +24,7 @@ const NavLink: FC<NavLinkProps> = ({
       px-3 py-2 rounded-lg text-sm font-medium transition duration-300 ease-in-out
       ${
         isMobile
-          ? "block text-gray-200 hover:bg-indigo-600 hover:text-white"
+          ? "block text-gray-200 hover:bg-green-600 hover:text-white"
           : "text-gray-300 hover:bg-gray-700 hover:text-white"
       }
     `}
@@ -44,25 +44,24 @@ export default function Header() {
 
   return (
     <header className="bg-[#020617] text-white shadow-xl sticky top-0 z-50">
-      <div className="absolute top-[-120px] left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-green-500/20 blur-[140px] rounded-full pointer-events-none" />
+      {/* <div className="absolute top-[-120px] left-1/2 -translate-x-1/2 w-[600px] h-full bg-green-500/20 blur-[140px] rounded-full pointer-events-none" /> */}
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo/Company Name */}
           <div className="shrink-0">
-            {/* <Link
+            <Link
               href="/"
               className="text-3xl font-extrabold tracking-wider text-green-400 hover:text-green-300 transition duration-300"
             >
               <Image
-                src="/logo.png"
+                src="/logo.jpeg"
+                width={200}
                 alt="Whatechnogy Logo"
-                width={50}
                 height={50}
-                className="inline-block mr-2 rounded-full"
+                className="inline-block mr-2"
               />
-              Whatechnogy
-            </Link> */}
+            </Link>
           </div>
 
           {/* Desktop Navigation Links */}
@@ -74,7 +73,7 @@ export default function Header() {
               </button>
 
               {/* Dropdown */}
-              <div className="absolute left-0 mt-2 w-56 bg-gray-800 rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+              <div className="absolute left-0 z-100 mt-2 w-56 bg-gray-800 rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
                 <a
                   href="/solution/ai-ml"
                   className="block px-4 py-2 text-sm text-gray-200 hover:bg-green-600 rounded-t-xl"
@@ -146,7 +145,7 @@ export default function Header() {
             <div>
               <button
                 onClick={() => setIsSolutionOpen(!isSolutionOpen)}
-                className="w-full text-left px-3 py-2 rounded-lg text-sm font-medium text-gray-200 hover:bg-indigo-600 hover:text-white transition"
+                className="w-full text-left px-3 py-2 rounded-lg text-sm font-medium text-gray-200 hover:bg-green-600 hover:text-white transition"
               >
                 Solution
               </button>
@@ -201,7 +200,7 @@ export default function Header() {
             </NavLink>
             <a
               href="/contact"
-              className="mt-3 block w-full text-center px-4 py-2 bg-indigo-500 text-white font-semibold rounded-xl shadow-lg hover:bg-indigo-600 transition duration-300 ease-in-out"
+              className="mt-3 block w-full text-center px-4 py-2 bg-green-500 text-white font-semibold rounded-xl shadow-lg hover:bg-green-600 transition duration-300 ease-in-out"
             >
               Start Demo
             </a>

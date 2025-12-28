@@ -409,7 +409,7 @@ const MainContent: FC = () => {
       {/* <LogoBar /> */}
 
       <section id="services" className="py-16 bg-gray-50 shadow-2xl">
-        <div className="flex items-center justify-around w-full py-16">
+        <div className="flex items-center max-[614px]:flex-col max-[614px]:items-start px-4 max-[614px]:gap-4 justify-around w-full py-16">
           <div className="flex">
             <Zap size={32} className="text-green-500 mr-3 shrink-0" />
             <h2 className="text-4xl font-bold text-gray-900">
@@ -600,7 +600,7 @@ const MainContent: FC = () => {
 // --- Main Application Component ---
 const App: FC = () => {
   return (
-    <div className="min-h-screen antialiased">
+    <div className="min-h-screen antialiased overflow-x-hidden">
       <MainContent />
       <ContactUs />
     </div>

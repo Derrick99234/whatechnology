@@ -5,9 +5,19 @@ import Orb from "@/components/Orb";
 import Particles from "@/components/Particles";
 
 export default function ContactUs() {
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("Contact form submitted! Data ready for processing.");
+
+    const formData = new FormData(e.currentTarget);
+
+    const data = {
+      name: formData.get("name"),
+      email: formData.get("email"),
+      subject: formData.get("subject"),
+      message: formData.get("message"),
+    };
+
+    console.log("Contact form data:", data);
   };
 
   return (
@@ -96,32 +106,38 @@ export default function ContactUs() {
                 {/* Name */}
                 <input
                   type="text"
+                  name="name"
                   placeholder="Your Name"
                   required
                   className="w-full p-4 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-green-500 transition duration-300"
                 />
                 {/* Email */}
                 <input
-                  type="email"
-                  placeholder="Your Email"
+                  type="text"
+                  name="subject"
+                  placeholder="Subject"
                   required
                   className="w-full p-4 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-green-500 transition duration-300"
                 />
               </div>
+
               {/* Subject */}
               <input
                 type="text"
+                name="subject"
                 placeholder="Subject"
                 required
                 className="w-full p-4 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-green-500 transition duration-300"
               />
+
               {/* Message */}
               <textarea
+                name="message"
                 placeholder="Your Message"
                 required
                 rows={5}
                 className="w-full p-4 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-green-500 transition duration-300 resize-none"
-              ></textarea>
+              />
 
               <button
                 type="submit"

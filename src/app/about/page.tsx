@@ -252,14 +252,6 @@ const App = () => {
   return (
     <div className="min-h-screen bg-[#020617] font-sans antialiased flex flex-col p-4 md:p-8 relative">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-11/12 bg-green-600/10 blur-[120px] rounded-full pointer-events-none" />
-      <style>{`
-        /* Custom scrollbar for aesthetics */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #1f2937; }
-        ::-webkit-scrollbar-thumb { background: #4f46e5; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #6366f1; }
-      `}</style>
-
       <main className="grow w-full mx-auto">
         <AboutUs />
         <ContactUs />
