@@ -1,6 +1,7 @@
 import React from "react";
 import { CheckCircle2, Play } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 /**
  * @typedef {Object} Feature
@@ -181,9 +182,12 @@ const WhyChooseSection = () => {
 
           {/* CTA Area */}
           <div className="flex flex-col sm:flex-row items-center gap-8 pt-4 border-t border-slate-100">
-            <button className="w-full sm:w-auto px-10 py-5 bg-[#020617] hover:bg-green-500 text-white font-black rounded-xl shadow-xl shadow-blue-200 transition-all hover:-translate-y-1 active:scale-95">
+            <Link
+              href={"/contact"}
+              className="w-full sm:w-auto px-10 py-5 bg-[#020617] hover:bg-green-500 text-white font-black rounded-xl shadow-xl shadow-blue-200 transition-all hover:-translate-y-1 active:scale-95"
+            >
               Get Started Today
-            </button>
+            </Link>
             <div className="flex items-center gap-4">
               <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-slate-100">
                 <Image
@@ -233,7 +237,7 @@ const WhyChooseSection = () => {
               <h5 className="text-2xl font-black tracking-tight">
                 Dapo Adejuwon
               </h5>
-              <p className="text-indigo-400 font-bold uppercase tracking-widest text-xs mt-1">
+              <p className="text-green-400 font-bold uppercase tracking-widest text-xs mt-1">
                 CEO Hostloni
               </p>
             </div>

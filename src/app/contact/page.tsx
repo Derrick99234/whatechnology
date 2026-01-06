@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
-import Orb from "@/components/Orb";
 import Particles from "@/components/Particles";
 
 export default function ContactUs() {
@@ -60,7 +59,7 @@ export default function ContactUs() {
                 <Mail className="h-6 w-6 text-green-400 shrink-0 mt-1" />
                 <div>
                   <h4 className="font-semibold text-white">Email Us</h4>
-                  <p className="text-gray-400">contact@whatechnology.io</p>
+                  <p className="text-gray-400">contact@whatechnology.com</p>
                 </div>
               </div>
               <div className="flex items-start space-x-4">
@@ -75,7 +74,7 @@ export default function ContactUs() {
                 <div>
                   <h4 className="font-semibold text-white">Visit Our Office</h4>
                   <p className="text-gray-400">
-                    100 Tech Drive, Suite 200, Innovation City, TX 78701
+                    16315 Eddinger Road bowie MD 20716 USA
                   </p>
                 </div>
               </div>
@@ -85,7 +84,7 @@ export default function ContactUs() {
             {/* Map Placeholder */}
             <div className="h-64 bg-gray-700 rounded-xl flex items-center justify-center text-gray-500 font-bold border border-green-800/50">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.3101368338594!2d3.3551413748325603!3d6.608331193385675!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b92353daf72c1%3A0x4d53ffdb65e0c673!2sArk%20of%20Light%20for%20all%20Nations!5e0!3m2!1sen!2sng!4v1764494587277!5m2!1sen!2sng"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3103.5434628230164!2d-76.72738852406144!3d38.9344111717161!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b7ec7d0633eced%3A0x701eccbd36829b4c!2s16315%20Eddinger%20Rd%2C%20Bowie%2C%20MD%2020716%2C%20USA!5e0!3m2!1sen!2sng!4v1767704324230!5m2!1sen!2sng"
                 width="600"
                 height="250"
                 style={{ border: "0" }}

@@ -5,6 +5,7 @@ import { Award, TrendingUp, Briefcase } from "lucide-react";
 import ValueSection from "@/components/value-section";
 import Founder from "@/components/founder";
 import ContactUs from "../contact/page";
+import Link from "next/link";
 
 // --- Type Definitions ---
 
@@ -67,12 +68,12 @@ const AboutUs: React.FC = () => {
             strategic partnership, cutting-edge cloud architecture, and
             human-centric design.
           </p>
-          <button
-            // onClick={() => dummySetView("leadership")}
+          <Link
+            href={"/contact"}
             className="bg-green-600 text-white px-10 py-4 font-bold rounded-xl shadow-2xl shadow-green-500/50 hover:bg-green-700 transition duration-300 transform hover:scale-[1.03] "
           >
-            See Our History & Leadership
-          </button>
+            Move beoyond hype
+          </Link>
         </div>
       </section>
 

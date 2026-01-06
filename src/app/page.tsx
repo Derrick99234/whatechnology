@@ -20,6 +20,7 @@ import Image from "next/image";
 import ContactUs from "./contact/page";
 import Hero from "@/components/demoHeroSection";
 import WhyChooseSection from "@/components/why-choose-us";
+import Link from "next/link";
 
 // --- Interfaces for Data and Props ---
 
@@ -141,7 +142,7 @@ const ExpertiseSection: FC = () => (
           </li>
         </ul>
         <a
-          href="/team"
+          href="/about"
           className="mt-8 inline-flex items-center space-x-2 text-green-500 font-semibold hover:text-green-600 transition duration-300"
         >
           <span>Meet the Team</span>
@@ -373,41 +374,6 @@ const MainContent: FC = () => {
     <main className="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200">
       {/* 1. HERO SECTION (SEO H1) */}
       <Hero />
-      {/* <section className="bg-gray-900 py-20 md:py-32 border-b border-indigo-700">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
-          <span className="text-sm font-semibold text-indigo-400 uppercase tracking-widest block mb-4">
-            Future-Proof Your Business
-          </span>
-          <h1 className="text-5xl sm:text-6xl md:text-7xl font-extrabold text-white leading-tight mb-6">
-            Digital Transformation Powered by{" "}
-            <span className="text-indigo-400">Whatechnogy</span>
-          </h1>
-          <p className="text-xl text-gray-300 mb-10 max-w-4xl mx-auto">
-            We deliver innovative and scalable technology solutions in AI,
-            Cloud, and Cyber Security to drive efficiency and competitive
-            advantage in the digital age.
-          </p>
-          <div className="flex justify-center space-x-4">
-            <a
-              href="/contact"
-              className="flex items-center space-x-2 px-8 max-[395px]:px-6 py-4 bg-indigo-500 text-white font-bold rounded-xl shadow-xl hover:bg-indigo-600 transition duration-300 transform hover:scale-105"
-            >
-              <span>Request a Demo</span>
-              <ArrowRight size={20} />
-            </a>
-            <a
-              href="/solutions"
-              className="px-8 py-4 bg-gray-700 max-[395px]:px-6 text-gray-200 font-semibold rounded-xl shadow-md hover:bg-gray-600 transition duration-300"
-            >
-              Explore Solutions
-            </a>
-          </div>
-        </div>
-      </section> */}
-
-      {/* 2. TRUST/LOGO BAR */}
-      {/* <LogoBar /> */}
-
       <section id="services" className="py-16 bg-gray-50 shadow-2xl">
         <div className="flex items-center max-[614px]:flex-col max-[614px]:items-start px-4 max-[614px]:gap-4 justify-around w-full py-16">
           <div className="flex">
@@ -436,9 +402,12 @@ const MainContent: FC = () => {
                 Ready to extend your team or start a new project? Contact us
                 today to discuss your next technical challenge.
               </p>
-              <button className="w-full py-3 px-6 bg-white text-gr-700 font-semibold rounded-lg shadow-md hover:bg-gray-100 transition transform hover:scale-[1.02]">
+              <Link
+                href={"/contact"}
+                className="w-full py-3 px-6 bg-white text-gr-700 font-semibold rounded-lg shadow-md hover:bg-gray-100 transition transform hover:scale-[1.02]"
+              >
                 Request Service
-              </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -447,43 +416,6 @@ const MainContent: FC = () => {
       {/* 4. EXPERTISE / VISUAL BLOCK */}
       <ExpertiseSection />
 
-      {/* 5. WHY CHOOSE US / VALUE PROPOSITION (Sleek 3-Column Cards) */}
-      {/* <section className="py-20 bg-gray-100 dark:bg-gray-700">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <span className="text-sm font-semibold text-indigo-600 dark:text-indigo-400 uppercase tracking-widest block mb-2">
-              The Whatechnogy Difference
-            </span>
-            <h2 className="text-4xl font-extrabold text-gray-900 dark:text-white mb-4">
-              Why Choose Whatechnogy?
-            </h2>
-            <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-              We don&apos;t just implement technology; we engineer success. Our
-              commitment to agility, support, and tangible results sets us
-              apart.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {differentiators.map((diff, index) => (
-              <div
-                key={index}
-                className="p-8 bg-white dark:bg-gray-900 rounded-2xl shadow-xl border-b-4 border-indigo-500 hover:shadow-2xl transition duration-300 transform hover:-translate-y-1"
-              >
-                <div className="flex items-center space-x-4 mb-4">
-                  <diff.icon size={32} className="text-indigo-500 shrink-0" />
-                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
-                    {diff.title}
-                  </h3>
-                </div>
-                <p className="text-gray-600 dark:text-gray-300 text-lg">
-                  {diff.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section> */}
       <WhyChooseSection />
 
       {/* 3. CORE SERVICES SECTION */}

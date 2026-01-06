@@ -41,7 +41,7 @@ export default function Footer() {
         {/* Main Grid Section */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-10 border-b border-gray-700 pb-10">
           {/* Column 1: Company Info */}
-          <div className="space-y-4 col-span-2 md:col-span-1">
+          <div className="space-y-4 col-span-2 md:col-span-2">
             <h3 className="text-2xl font-extrabold text-green-400">
               Whatechnogy
             </h3>
@@ -85,15 +85,8 @@ export default function Footer() {
             <FooterLink href="/data">Big Data</FooterLink>
           </FooterColumn>
 
-          {/* Column 3: Company */}
-          <FooterColumn title="Company">
-            <FooterLink href="/about">About Us</FooterLink>
-            <FooterLink href="/careers">Careers</FooterLink>
-            <FooterLink href="/blog">Our Blog</FooterLink>
-            <FooterLink href="/partners">Partners</FooterLink>
-          </FooterColumn>
-
           {/* Column 4: Contact */}
+
           <FooterColumn title="Contact">
             <li className="flex items-center space-x-2">
               <Mail size={16} className="text-gray-500" />
@@ -110,6 +103,7 @@ export default function Footer() {
             </li>
             <FooterLink href="/support">Support Center</FooterLink>
           </FooterColumn>
+          {/* Column 3: Company */}
         </div>
 
         {/* Copyright Section */}

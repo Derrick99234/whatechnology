@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 // Data for the services and their completion percentages
@@ -84,11 +85,12 @@ const ValueSection = () => {
             </h1>
 
             {/* CTA Button */}
-            <button
+            <Link
+              href={"/contact"}
               className={`mt-6 px-10 py-4 bg-green-500 text-white text-lg font-semibold rounded-lg shadow-xl hover:bg-green-600 transition duration-300 transform hover:scale-[1.02] focus:outline-none focus:ring-4 focus:ring-cyan-300`}
             >
               Contact us
-            </button>
+            </Link>
           </div>
         </div>
       </div>

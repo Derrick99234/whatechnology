@@ -1,5 +1,6 @@
 import React from "react";
 import ContactUs from "../contact/page";
+import Link from "next/link";
 
 // --- Type Definitions ---
 interface ServiceCardData {
@@ -321,7 +322,7 @@ const featuresData: FeatureData[] = [
 const testimonialsData: TestimonialData[] = [
   {
     quote:
-      "ExcelSolution took our legacy system and modernized it seamlessly. The speed and security improvements were immediate and significant.",
+      "W took our legacy system and modernized it seamlessly. The speed and security improvements were immediate and significant.",
     name: "Jane Doe, CTO",
     title: "FinTech Innovations Inc.",
   },
@@ -416,7 +417,7 @@ export default function App() {
                 <span className="text-green-400">Experience</span>
               </h1>
               <p className="text-lg text-green-50">
-                At ExcelSolution, we create exceptional experiences and software
+                At Whatechnogy, we create exceptional experiences and software
                 solutions, transforming strategies into tangible results. We
                 empower businesses to excel in a rapidly changing digital
                 landscape by leveraging cutting-edge technology and a team of
@@ -451,9 +452,12 @@ export default function App() {
                 Ready to extend your team or start a new project? Contact us
                 today to discuss your next technical challenge.
               </p>
-              <button className="w-full py-3 px-6 bg-white text-green-700 font-semibold rounded-lg shadow-md hover:bg-gray-100 transition transform hover:scale-[1.02]">
+              <Link
+                href={"/contact"}
+                className="w-full py-3 px-6 bg-white text-green-700 font-semibold rounded-lg shadow-md hover:bg-gray-100 transition transform hover:scale-[1.02]"
+              >
                 Request Service
-              </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -467,7 +471,7 @@ export default function App() {
             Our Core Values
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white mt-2 mb-12">
-            The ExcelSolution <span className="text-green-400">Difference</span>
+            The W <span className="text-green-400">Difference</span>
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {featuresData.map((feature, index) => (
