@@ -99,7 +99,7 @@ export default function Footer() {
             </li>
             <li className="flex items-center space-x-2">
               <Phone size={16} className="text-gray-500" />
-              <p className="text-sm">+1 (555) TECH-NOW</p>
+              <p className="text-sm">+1 (240) 470-6048</p>
             </li>
             <FooterLink href="/support">Support Center</FooterLink>
           </FooterColumn>

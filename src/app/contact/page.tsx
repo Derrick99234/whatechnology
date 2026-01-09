@@ -59,14 +59,14 @@ export default function ContactUs() {
                 <Mail className="h-6 w-6 text-green-400 shrink-0 mt-1" />
                 <div>
                   <h4 className="font-semibold text-white">Email Us</h4>
-                  <p className="text-gray-400">contact@whatechnology.com</p>
+                  <p className="text-gray-400">info@whatechnology.com</p>
                 </div>
               </div>
               <div className="flex items-start space-x-4">
                 <Phone className="h-6 w-6 text-green-400 shrink-0 mt-1" />
                 <div>
                   <h4 className="font-semibold text-white">Call Us</h4>
-                  <p className="text-gray-400">+1 (555) 123-4567</p>
+                  <p className="text-gray-400">+1 (240) 470-6048</p>
                 </div>
               </div>
               <div className="flex items-start space-x-4">

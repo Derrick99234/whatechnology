@@ -203,7 +203,7 @@ const WhyChooseSection = () => {
                   Or Call Us
                 </p>
                 <p className="text-lg font-black text-[#001c4d] tabular-nums tracking-tight">
-                  +1 (469) 679-8576
+                  +1 (240) 470-6048
                 </p>
               </div>
             </div>
