@@ -72,7 +72,6 @@ const vertex = /* glsl */ `
     }
     
     gl_Position = projectionMatrix * mvPos;
-    gl_Position = projectionMatrix * mvPos;
   }
 `;
 
@@ -162,7 +161,6 @@ const Particles: React.FC<ParticlesProps> = ({
       particleColors && particleColors.length > 0
         ? particleColors
         : defaultColors;
-
     for (let i = 0; i < count; i++) {
       let x: number, y: number, z: number, len: number;
       do {
@@ -244,7 +242,6 @@ const Particles: React.FC<ParticlesProps> = ({
         container.removeChild(gl.canvas);
       }
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
     particleCount,
     particleSpread,
@@ -257,6 +254,7 @@ const Particles: React.FC<ParticlesProps> = ({
     cameraDistance,
     disableRotation,
     pixelRatio,
+    particleColors,
   ]);
 
   return (

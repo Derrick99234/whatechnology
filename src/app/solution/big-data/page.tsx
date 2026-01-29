@@ -1,4 +1,6 @@
+"use client";
 import React from "react";
+import { motion } from "framer-motion";
 import {
   Database,
   BarChart3,
@@ -57,9 +59,14 @@ const bigDataServices = [
 
 const App = () => {
   return (
-    <div className="bg-white min-h-screen font-sans overflow-x-hidden">
+    <motion.div 
+      initial={{ opacity: 0 }} 
+      animate={{ opacity: 1 }} 
+      transition={{ duration: 0.5 }}
+      className="bg-background text-foreground min-h-screen font-sans overflow-x-hidden transition-colors duration-300"
+    >
       {/* --- Hero Section --- */}
-      <section className="relative pt-20 pb-32 lg:pt-32 lg:pb-48 bg-[#020617] overflow-hidden">
+      <section className="relative pt-20 pb-32 lg:pt-32 lg:pb-48 bg-background overflow-hidden">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-11/12 bg-green-600/10 blur-[120px] rounded-full pointer-events-none" />
         {/* Abstract Background Gradients */}
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[120px] -mr-48 -mt-48"></div>
@@ -68,26 +75,26 @@ const App = () => {
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="space-y-8">
-              <div className="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-400/20 rounded-full px-4 py-2">
-                <Share2 className="w-4 h-4 text-green-500" />
-                <span className="text-green-500 text-xs font-bold uppercase tracking-widest">
+              <div className="inline-flex items-center gap-2 bg-secondary border border-border rounded-full px-4 py-2">
+                <Share2 className="w-4 h-4 text-foreground" />
+                <span className="text-foreground text-xs font-bold uppercase tracking-widest">
                   Enterprise Data Engineering
                 </span>
               </div>
-              <h1 className="text-5xl lg:text-7xl font-black text-white leading-[1.05]">
+              <h1 className="text-5xl lg:text-7xl font-black leading-[1.05]">
                 Turn Raw Data into{" "}
-                <span className="text-green-500">Strategic Insights.</span>
+                <span>Strategic Insights.</span>
               </h1>
-              <p className="text-blue-100/70 text-lg lg:text-xl max-w-xl leading-relaxed font-medium">
+              <p className="text-muted-foreground text-lg lg:text-xl max-w-xl leading-relaxed font-medium">
                 Whatechnology builds the pipelines that power modern
                 enterprises. We help you ingest, process, and analyze massive
                 datasets at the speed of business.
               </p>
               <div className="flex flex-wrap gap-4">
-                <button className="px-8 py-4 bg-green-500 hover:bg-green-400 text-white font-black rounded-xl transition-all flex items-center gap-2 shadow-xl shadow-blue-500/20">
+                <button className="px-8 py-4 bg-primary hover:bg-green-600 text-primary-foreground font-black rounded-xl transition-all flex items-center gap-2 shadow-xl shadow-green-500/10">
                   Optimize Your Stack <ArrowRight className="w-4 h-4" />
                 </button>
-                <button className="px-8 py-4 bg-white/5 hover:bg-white/10 text-white border border-white/10 font-black rounded-xl transition-all">
+                <button className="px-8 py-4 bg-secondary hover:bg-muted text-secondary-foreground border border-border font-black rounded-xl transition-all">
                   Data Architecture Review
                 </button>
               </div>
@@ -103,19 +110,19 @@ const App = () => {
                   className="w-full h-full object-cover"
                 />
                 {/* Floating Insight Card */}
-                <div className="absolute bottom-6 left-6 bg-white/95 backdrop-blur-md p-5 rounded-2xl shadow-xl border border-white/20 w-64 hidden sm:block">
+                <div className="absolute bottom-6 left-6 bg-card/95 backdrop-blur-md p-5 rounded-2xl shadow-xl border border-border w-64 hidden sm:block">
                   <div className="flex items-center gap-3 mb-2">
-                    <div className="p-2 bg-blue-100 rounded-lg">
-                      <PieChart className="w-5 h-5 text-green-600" />
+                    <div className="p-2 bg-secondary rounded-lg">
+                      <PieChart className="w-5 h-5 text-foreground" />
                     </div>
                     <p className="text-[10px] font-black uppercase text-slate-400">
                       Processing Speed
                     </p>
                   </div>
-                  <p className="text-2xl font-black text-slate-900">
+                  <p className="text-2xl font-black text-slate-900 dark:text-white">
                     Petabyte-Scale
                   </p>
-                  <div className="mt-3 h-1 w-full bg-slate-100 rounded-full overflow-hidden">
+                  <div className="mt-3 h-1 w-full bg-secondary rounded-full overflow-hidden">
                     <div className="h-full bg-green-500 w-[88%]"></div>
                   </div>
                 </div>
@@ -128,26 +135,26 @@ const App = () => {
       {/* --- Services Grid --- */}
       <section className="py-24 lg:py-32 max-w-7xl mx-auto px-6">
         <div className="text-center max-w-3xl mx-auto mb-20 space-y-4">
-          <h2 className="text-sm font-black uppercase tracking-[0.3em] text-green-500">
+          <h2 className="text-sm font-black uppercase tracking-[0.3em] text-muted-foreground">
             Data Expertise
           </h2>
-          <p className="text-4xl lg:text-5xl font-black">
+          <p className="text-4xl lg:text-5xl font-black text-gray-900 dark:text-white">
             Built for Speed and Scalability
           </p>
-          <div className="w-20 h-1.5 bg-blue-100 mx-auto rounded-full"></div>
+          <div className="w-20 h-1.5 bg-blue-100 dark:bg-blue-900 mx-auto rounded-full"></div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {bigDataServices.map((service, index) => (
             <div
               key={index}
-              className="group p-10 rounded-3xl bg-slate-50 border border-slate-100 hover:bg-white hover:shadow-2xl hover:shadow-blue-900/5 transition-all duration-300"
+              className="group p-10 rounded-3xl bg-card border border-border hover:shadow-2xl hover:shadow-green-500/10 transition-all duration-300"
             >
-              <div className="w-16 h-16 rounded-2xl bg-white shadow-sm flex items-center justify-center mb-8 group-hover:bg-green-500 transition-colors">
-                <service.icon className="w-8 h-8 text-green-500 group-hover:text-white transition-colors" />
+              <div className="w-16 h-16 rounded-2xl bg-secondary shadow-sm flex items-center justify-center mb-8 group-hover:bg-primary transition-colors">
+                <service.icon className="w-8 h-8 text-foreground group-hover:text-white transition-colors" />
               </div>
-              <h3 className="text-2xl font-black mb-4">{service.title}</h3>
-              <p className="text-slate-500 leading-relaxed font-medium">
+              <h3 className="text-2xl font-black mb-4 text-gray-900 dark:text-white">{service.title}</h3>
+              <p className="text-slate-500 dark:text-slate-400 leading-relaxed font-medium">
                 {service.description}
               </p>
             </div>
@@ -158,16 +165,16 @@ const App = () => {
       {/* --- Process Section --- */}
       <section className="relative mt-20">
         <div
-          className="absolute top-0 left-0 w-full h-24 bg-white -translate-y-1/2"
+          className="absolute top-0 left-0 w-full h-24 bg-background -translate-y-1/2 transition-colors duration-300"
           style={{ clipPath: "polygon(0 100%, 100% 0, 100% 100%, 0 100%)" }}
         ></div>
         <div
-          className="bg-slate-50 py-32"
+          className="bg-background py-32 transition-colors duration-300"
           style={{ clipPath: "polygon(0 5%, 100% 0, 100% 100%, 0 100%)" }}
         >
           <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
             <div className="order-2 lg:order-1 relative">
-              <div className="relative z-10 rounded-3xl overflow-hidden shadow-2xl border-8 border-white">
+              <div className="relative z-10 rounded-3xl overflow-hidden shadow-2xl border-8 border-white dark:border-gray-800">
                 <Image
                   width={400}
                   height={400}
@@ -176,11 +183,11 @@ const App = () => {
                   className="w-full h-auto object-cover"
                 />
               </div>
-              <div className="absolute -top-10 -right-10 w-40 h-40 bg-blue-200/30 rounded-full blur-3xl z-0"></div>
+              <div className="absolute -top-10 -right-10 w-40 h-40 bg-blue-200/30 dark:bg-blue-900/20 rounded-full blur-3xl z-0"></div>
             </div>
 
             <div className="order-1 lg:order-2 space-y-10">
-              <h2 className="text-4xl lg:text-5xl font-black leading-tight">
+              <h2 className="text-4xl lg:text-5xl font-black leading-tight text-gray-900 dark:text-white">
                 Your Data-to-Decision Pipeline
               </h2>
               <div className="space-y-8">
@@ -202,12 +209,12 @@ const App = () => {
                   },
                 ].map((item, i) => (
                   <div key={i} className="flex gap-6 group">
-                    <span className="text-4xl font-black text-blue-100 group-hover:text-green-500 transition-colors">
+                    <span className="text-4xl font-black text-muted-foreground transition-colors">
                       {item.step}
                     </span>
                     <div>
-                      <h4 className="text-xl font-bold mb-1">{item.title}</h4>
-                      <p className="text-slate-500 font-medium leading-relaxed">
+                      <h4 className="text-xl font-bold mb-1 text-gray-900 dark:text-white">{item.title}</h4>
+                      <p className="text-slate-500 dark:text-slate-400 font-medium leading-relaxed">
                         {item.desc}
                       </p>
                     </div>
@@ -220,25 +227,25 @@ const App = () => {
       </section>
 
       {/* --- CTA Section --- */}
-      <section className="py-32 bg-[#020617] text-white text-center px-6 relative overflow-hidden">
+      <section className="py-32 bg-background text-center px-6 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-green-500/10 rounded-full blur-3xl"></div>
         <div className="max-w-3xl mx-auto space-y-10 relative z-10">
           <h2 className="text-4xl lg:text-6xl font-black leading-tight">
             Stop Guessing. Start Knowing.
           </h2>
-          <p className="text-blue-100/70 text-xl font-medium">
+          <p className="text-muted-foreground text-xl font-medium">
             Whatechnology bridges the gap between raw data and competitive
             advantage. Scale your insights with us today.
           </p>
           <div className="pt-6">
-            <button className="px-12 py-6 bg-green-500 hover:bg-blue-400 text-white font-black rounded-2xl shadow-2xl shadow-blue-500/40 transition-all text-lg hover:-translate-y-1">
+            <button className="px-12 py-6 bg-primary hover:bg-green-600 text-primary-foreground font-black rounded-2xl shadow-2xl shadow-green-500/10 transition-all text-lg hover:-translate-y-1">
               Start Your Data Journey
             </button>
           </div>
         </div>
       </section>
       <ContactUs />
-    </div>
+    </motion.div>
   );
 };
 

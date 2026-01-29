@@ -14,7 +14,7 @@ interface FooterLinkProps {
 // --- Footer Component ---
 const FooterColumn: FC<FooterColumnProps> = ({ title, children }) => (
   <div className="space-y-4">
-    <h3 className="text-lg font-bold text-white mb-4">{title}</h3>
+    <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4">{title}</h3>
     <ul className="space-y-3">{children}</ul>
   </div>
 );
@@ -24,7 +24,7 @@ const FooterLink: FC<FooterLinkProps> = ({ href, children }) => (
   <li>
     <a
       href={href}
-      className="text-sm hover:text-green-400 transition duration-300 ease-in-out"
+      className="text-sm hover:text-green-600 dark:hover:text-[#4ade80] transition duration-300 ease-in-out"
     >
       {children}
     </a>
@@ -35,14 +35,14 @@ export default function Footer() {
   const currentYear: number = new Date().getFullYear();
 
   return (
-    <footer className="bg-gray-900 text-gray-400 relative">
+    <footer className="bg-white dark:bg-[#1a1a2e] text-gray-600 dark:text-gray-300 relative transition-colors duration-300">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-11/12 bg-green-600/10 blur-[120px] rounded-full pointer-events-none" />
       <div className="max-w-7xl mx-auto py-12 px-6 lg:px-8">
         {/* Main Grid Section */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-10 border-b border-gray-700 pb-10">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-10 border-b border-gray-200 dark:border-white/10 pb-10">
           {/* Column 1: Company Info */}
           <div className="space-y-4 col-span-2 md:col-span-2">
-            <h3 className="text-2xl font-extrabold text-green-400">
+            <h3 className="text-2xl font-extrabold text-gray-900 dark:text-white">
               Whatechnogy
             </h3>
             <p className="text-sm">
@@ -55,21 +55,21 @@ export default function Footer() {
               <a
                 href="#"
                 aria-label="Facebook"
-                className="hover:text-white transition duration-300"
+                className="hover:text-gray-900 dark:hover:text-white transition duration-300"
               >
                 <Facebook size={20} />
               </a>
               <a
                 href="#"
                 aria-label="Twitter"
-                className="hover:text-white transition duration-300"
+                className="hover:text-gray-900 dark:hover:text-white transition duration-300"
               >
                 <Twitter size={20} />
               </a>
               <a
                 href="#"
                 aria-label="LinkedIn"
-                className="hover:text-white transition duration-300"
+                className="hover:text-gray-900 dark:hover:text-white transition duration-300"
               >
                 <Linkedin size={20} />
               </a>
@@ -89,16 +89,16 @@ export default function Footer() {
 
           <FooterColumn title="Contact">
             <li className="flex items-center space-x-2">
-              <Mail size={16} className="text-gray-500" />
+              <Mail size={16} className="text-gray-500 dark:text-gray-400" />
               <a
                 href="mailto:info@whatechnogy.com"
-                className="text-sm hover:text-green-400"
+                className="text-sm hover:text-green-600 dark:hover:text-green-400"
               >
                 info@whatechnogy.com
               </a>
             </li>
             <li className="flex items-center space-x-2">
-              <Phone size={16} className="text-gray-500" />
+              <Phone size={16} className="text-gray-500 dark:text-gray-400" />
               <p className="text-sm">+1 (240) 470-6048</p>
             </li>
             <FooterLink href="/support">Support Center</FooterLink>
@@ -108,13 +108,13 @@ export default function Footer() {
 
         {/* Copyright Section */}
         <div className="mt-8 text-center">
-          <p className="text-xs font-light text-gray-500">
+          <p className="text-xs font-light text-gray-500 dark:text-gray-400">
             &copy; {currentYear} **Whatechnogy**. All rights reserved. |
-            <a href="/privacy" className="hover:text-green-400 mx-1">
+            <a href="/privacy" className="hover:text-green-600 dark:hover:text-green-400 mx-1">
               Privacy Policy
             </a>{" "}
             |
-            <a href="/terms" className="hover:text-green-400 mx-1">
+            <a href="/terms" className="hover:text-green-600 dark:hover:text-green-400 mx-1">
               Terms of Service
             </a>
           </p>

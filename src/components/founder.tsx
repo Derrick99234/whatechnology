@@ -1,6 +1,8 @@
+"use client";
 import React from "react";
 import Image from "next/image";
 import { Linkedin, Twitter, Mail } from "lucide-react";
+import { motion } from "framer-motion";
 
 // 1. Define the TypeScript Interface for a Team Member (Used for the Founder)
 interface TeamMember {
@@ -52,7 +54,7 @@ const SocialLinks: React.FC<{ social: TeamMember["social"]; name: string }> = ({
       target="_blank"
       rel="noopener noreferrer"
       aria-label={`LinkedIn profile of ${name}`}
-      className="text-gray-500 hover:text-blue-700 transition duration-300 transform hover:scale-110"
+      className="text-gray-500 hover:text-blue-700 dark:text-gray-400 dark:hover:text-blue-400 transition duration-300 transform hover:scale-110"
     >
       <Linkedin size={24} />
     </a>
@@ -61,14 +63,14 @@ const SocialLinks: React.FC<{ social: TeamMember["social"]; name: string }> = ({
       target="_blank"
       rel="noopener noreferrer"
       aria-label={`Twitter profile of ${name}`}
-      className="text-gray-500 hover:text-blue-400 transition duration-300 transform hover:scale-110"
+      className="text-gray-500 hover:text-blue-400 dark:text-gray-400 dark:hover:text-blue-300 transition duration-300 transform hover:scale-110"
     >
       <Twitter size={24} />
     </a>
     <a
       href={`mailto:${social.email}`}
       aria-label={`Email ${name}`}
-      className="text-gray-500 hover:text-red-500 transition duration-300 transform hover:scale-110"
+      className="text-gray-500 hover:text-red-500 dark:text-gray-400 dark:hover:text-red-400 transition duration-300 transform hover:scale-110"
     >
       <Mail size={24} />
     </a>
@@ -83,36 +85,59 @@ const Founder: React.FC = () => {
   if (!founder) {
     return (
       <section className="py-24 text-center ">
-        <p className="text-red-500">Founder data is currently unavailable.</p>
+        <p className="text-red-500 dark:text-red-400">Founder data is currently unavailable.</p>
       </section>
     );
   }
 
   return (
     // Section Container: Responsive padding and light background
-    <section className="py-24 px-4 sm:px-6 lg:px-8">
+    <section className="py-24 px-4 sm:px-6 lg:px-8 bg-background text-foreground transition-colors duration-300">
       <div className="max-w-7xl mx-auto">
         {/* Header Content */}
         <div className="text-center mb-16">
-          <p className="text-base font-semibold text-green-600 uppercase tracking-wider">
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-base font-semibold text-muted-foreground uppercase tracking-wider"
+          >
             Leadership & Vision
-          </p>
-          <h2 className="mt-2 text-4xl sm:text-5xl lg:text-6xl font-extrabold text-green-600 leading-tight">
+          </motion.p>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="mt-2 text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 dark:text-white leading-tight"
+          >
             Meet the Founder, {founder.name}
-          </h2>
-          <p className="mt-4 max-w-3xl mx-auto text-xl text-white">
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.4 }}
+            className="mt-4 max-w-3xl mx-auto text-xl text-gray-600 dark:text-gray-300"
+          >
             Anya established our company with a singular focus: transforming
             complex technology into simple, scalable business solutions.
-          </p>
+          </motion.p>
         </div>
 
         {/* Founder Detail Block (Prominent 2-Column Layout) */}
-        <div className="bg-gray-900 rounded-2xl shadow-2xl overflow-hidden max-w-5xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="bg-card rounded-2xl shadow-2xl overflow-hidden max-w-5xl mx-auto border border-border transition-colors duration-300"
+        >
           <div className="grid grid-cols-1 lg:grid-cols-2">
             {/* LEFT COLUMN: Image */}
-            <div className="relative h-96 lg:h-auto">
+            <div className="relative h-96 lg:h-auto group">
               <Image
-                className="w-full h-full object-cover object-center lg:object-top"
+                className="w-full h-full object-cover object-center lg:object-top transition-transform duration-700 group-hover:scale-105"
                 src={
                   "https://cdn.pixabay.com/photo/2019/12/04/09/30/man-4672229_1280.jpg"
                 }
@@ -121,31 +146,31 @@ const Founder: React.FC = () => {
                 height={400}
               />
               {/* Stylish Overlay Accent */}
-              <div className="absolute inset-0 bg-linear-to-t from-green-900/50 via-green-900/10 to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/20 to-transparent"></div>
             </div>
 
             {/* RIGHT COLUMN: Bio and Details */}
             <div className="p-8 md:p-12 flex flex-col justify-center">
-              <span className="text-sm font-medium text-green-600 uppercase tracking-widest mb-1">
+              <span className="text-sm font-medium text-muted-foreground uppercase tracking-widest mb-1">
                 Our Inspiration
               </span>
-              <h3 className="text-4xl font-extrabold text-green-600 mb-2">
+              <h3 className="text-4xl font-extrabold text-gray-900 dark:text-white mb-2">
                 {founder.name}
               </h3>
-              <p className="text-xl font-semibold text-white mb-6">
+              <p className="text-xl font-semibold text-gray-600 dark:text-gray-300 mb-6">
                 {founder.title}
               </p>
 
               {/* Detailed Bio/Quote Block */}
-              <div className="bg-green-50 border-l-4 border-green-500 p-4 mb-6 rounded-lg shadow-inner">
-                <p className="text-gray-700 italic">
+              <div className="bg-secondary border border-border p-4 mb-6 rounded-lg shadow-inner transition-colors duration-300">
+                <p className="text-gray-700 dark:text-gray-300 italic">
                   &ldquo;{founder.bio} My personal mission is to empower
                   businesses globally through technology that is both
                   sophisticated and accessible.&ldquo;
                 </p>
               </div>
 
-              <p className="text-gray-500 text-base leading-relaxed">
+              <p className="text-gray-500 dark:text-gray-400 text-base leading-relaxed">
                 Anya brings over two decades of experience in enterprise
                 software architecture and holds several patents in cloud-native
                 security. She is a dedicated advocate for open-source
@@ -155,7 +180,7 @@ const Founder: React.FC = () => {
               <SocialLinks social={founder.social} name={founder.name} />
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

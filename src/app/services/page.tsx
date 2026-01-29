@@ -1,6 +1,8 @@
+"use client";
 import React from "react";
 import ContactUs from "../contact/page";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 // --- Type Definitions ---
 interface ServiceCardData {
@@ -342,21 +344,27 @@ const ServiceCard: React.FC<ServiceCardData> = ({
   description,
   details,
 }) => (
-  <div className="bg-white p-6 rounded-xl shadow-xl hover:shadow-green-500/50 transition duration-300 transform hover:-translate-y-1 h-full flex flex-col">
+  <motion.div 
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.5 }}
+    className="bg-card border border-border p-6 rounded-xl shadow-xl hover:shadow-green-500/10 transition duration-300 transform hover:-translate-y-1 h-full flex flex-col"
+  >
     <div className="flex items-start mb-4">
       {icon}
-      <h3 className="ml-4 text-xl font-bold text-gray-900">{title}</h3>
+      <h3 className="ml-4 text-xl font-bold">{title}</h3>
     </div>
-    <p className="text-gray-600 mb-4 grow">{description}</p>
-    <ul className="space-y-2 text-sm text-gray-700">
+    <p className="text-muted-foreground mb-4 grow">{description}</p>
+    <ul className="space-y-2 text-sm text-muted-foreground">
       {details.map((detail, index) => (
         <li key={index} className="flex items-start">
-          <ArrowRight className="w-4 h-4 text-green-50 shrink-0 mt-1 mr-2" />
+          <ArrowRight className="w-4 h-4 text-green-500 shrink-0 mt-1 mr-2" />
           <span>{detail}</span>
         </li>
       ))}
     </ul>
-  </div>
+  </motion.div>
 );
 
 const ProcessStep: React.FC<ProcessStepData> = ({
@@ -364,46 +372,64 @@ const ProcessStep: React.FC<ProcessStepData> = ({
   title,
   description,
 }) => (
-  <div className="text-center p-4 max-[395px]:p-2">
+  <motion.div 
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.5, delay: step * 0.1 }}
+    className="text-center p-4 max-[395px]:p-2"
+  >
     <div className="relative inline-block mb-4">
-      <div className="w-12 h-12 flex items-center justify-center bg-green-500 text-white rounded-full text-xl font-bold shadow-lg">
+      <div className="w-12 h-12 flex items-center justify-center bg-secondary text-foreground border border-border rounded-full text-xl font-bold shadow-lg">
         {step}
       </div>
     </div>
-    <h4 className="text-xl font-semibold text-white mb-2">{title}</h4>
-    <p className="text-green-50 text-sm md:max-w-xs mx-auto">{description}</p>
-  </div>
+    <h4 className="text-xl font-semibold mb-2">{title}</h4>
+    <p className="text-muted-foreground text-sm md:max-w-xs mx-auto">{description}</p>
+  </motion.div>
 );
 
 const FeatureCard: React.FC<FeatureData> = ({ icon, title, description }) => (
-  <div className="text-center p-6 md:p-8 rounded-xl border border-green-700/50 bg-gray-800/50 shadow-2xl">
-    <div className="mx-auto w-fit p-3 bg-green-900/50 rounded-full mb-4">
+  <motion.div 
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.5 }}
+    className="text-center p-6 md:p-8 rounded-xl border border-border bg-card shadow-2xl"
+  >
+    <div className="mx-auto w-fit p-3 bg-secondary rounded-full mb-4">
       {icon}
     </div>
-    <h4 className="text-xl font-bold text-white mb-2">{title}</h4>
-    <p className="text-green-50">{description}</p>
-  </div>
+    <h4 className="text-xl font-bold mb-2">{title}</h4>
+    <p className="text-muted-foreground">{description}</p>
+  </motion.div>
 );
 
 const TestimonialCard: React.FC<TestimonialData> = ({ quote, name, title }) => (
-  <div className="bg-white p-8 rounded-xl shadow-xl border-t-4 border-green-500 h-full flex flex-col">
-    <Quote className="w-8 h-8 text-green-500 mb-4" />
-    <p className="text-gray-700 italic mb-6 grow">&quot;{quote}&quot;</p>
-    <div className="border-t pt-4">
-      <p className="font-semibold text-gray-900">{name}</p>
-      <p className="text-sm text-green-50">{title}</p>
+  <motion.div 
+    initial={{ opacity: 0, scale: 0.95 }}
+    whileInView={{ opacity: 1, scale: 1 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.5 }}
+    className="bg-card border border-border p-8 rounded-xl shadow-xl border-t-4 border-green-500 h-full flex flex-col"
+  >
+    <Quote className="w-8 h-8 text-muted-foreground mb-4" />
+    <p className="text-muted-foreground italic mb-6 grow">&quot;{quote}&quot;</p>
+    <div className="border-t border-border pt-4">
+      <p className="font-semibold">{name}</p>
+      <p className="text-sm text-muted-foreground">{title}</p>
     </div>
-  </div>
+  </motion.div>
 );
 
 // --- Main Layout Component (Body Only) ---
 
 export default function App() {
   return (
-    <div className="font-sans">
+    <div className="font-sans bg-background text-foreground transition-colors duration-300">
       {/* 2. Hero Section */}
       <section
-        className={`relative min-h-[50vh] bg-[#020617] overflow-hidden flex flex-col items-center pt-20 pb-12 px-6  `}
+        className={`relative min-h-[50vh] bg-background overflow-hidden flex flex-col items-center pt-20 pb-12 px-6  `}
       >
         {/* Subtle Background Glow */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-green-600/10 blur-[120px] rounded-full pointer-events-none" />
@@ -411,19 +437,23 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Left Content (Headline) */}
-            <div>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6 text-white">
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6">
                 Our Services - Built for Growth, Backed by{" "}
-                <span className="text-green-400">Experience</span>
+                <span>Experience</span>
               </h1>
-              <p className="text-lg text-green-50">
+              <p className="text-lg text-muted-foreground">
                 At Whatechnogy, we create exceptional experiences and software
                 solutions, transforming strategies into tangible results. We
                 empower businesses to excel in a rapidly changing digital
                 landscape by leveraging cutting-edge technology and a team of
                 global experts.
               </p>
-            </div>
+            </motion.div>
           </div>
         </div>
         {/* Decorative Blur */}
@@ -435,7 +465,7 @@ export default function App() {
       {/* 3. Services Grid */}
       <section
         id="services"
-        className="py-16 bg-gray-50 -mt-8 rounded-t-3xl shadow-2xl"
+        className="py-16 bg-background -mt-8 rounded-t-3xl shadow-2xl relative z-20"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -444,35 +474,48 @@ export default function App() {
             ))}
 
             {/* Custom CTA Card */}
-            <div className="bg-green-700/90 p-6 rounded-xl shadow-xl flex flex-col justify-center items-center text-center h-full">
-              <h3 className="text-2xl font-bold text-white mb-4">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="bg-card border border-border p-6 rounded-xl shadow-xl flex flex-col justify-center items-center text-center h-full backdrop-blur-sm"
+            >
+              <h3 className="text-2xl font-bold mb-4">
                 Let&apos;s Talk
               </h3>
-              <p className="text-green-200 mb-6">
+              <p className="text-muted-foreground mb-6">
                 Ready to extend your team or start a new project? Contact us
                 today to discuss your next technical challenge.
               </p>
               <Link
                 href={"/contact"}
-                className="w-full py-3 px-6 bg-white text-green-700 font-semibold rounded-lg shadow-md hover:bg-gray-100 transition transform hover:scale-[1.02]"
+                className="w-full py-3 px-6 bg-primary text-primary-foreground font-semibold rounded-lg shadow-md hover:bg-green-600 transition transform hover:scale-[1.02]"
               >
                 Request Service
               </Link>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
 
       {/* 4. Why Choose Us (New Section) */}
-      <section id="features" className="py-20 bg-gray-900 relative">
+      <section id="features" className="py-20 bg-background relative overflow-hidden">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-11/12 bg-green-600/10 blur-[120px] rounded-full pointer-events-none" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <span className="text-green-500 text-sm font-semibold uppercase tracking-wider">
-            Our Core Values
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white mt-2 mb-12">
-            The W <span className="text-green-400">Difference</span>
-          </h2>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <span className="text-muted-foreground text-sm font-semibold uppercase tracking-wider">
+              Our Core Values
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-extrabold mt-2 mb-12">
+              The W <span>Difference</span>
+            </h2>
+          </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {featuresData.map((feature, index) => (
               <FeatureCard key={index} {...feature} />
@@ -484,17 +527,19 @@ export default function App() {
       {/* 5. Client Testimonials (New Section) */}
       <section
         id="process"
-        className="py-20 bg-gray-900 relative"
-        style={{
-          backgroundImage:
-            "linear-gradient(180deg, rgba(30, 41, 59, 1) 0%, rgba(17, 24, 39, 1) 100%)",
-        }}
+        className="py-20 bg-background relative"
       >
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-11/12 bg-green-600/10 blur-[120px] rounded-full pointer-events-none" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-12">
-            Our simple <span className="text-green-400">4 step process</span>
-          </h2>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-3xl sm:text-4xl font-extrabold mb-12"
+          >
+            Our simple <span>4 step process</span>
+          </motion.h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-[395px]:gap-4">
             {processSteps.map((step) => (
               <ProcessStep key={step.step} {...step} />
@@ -504,11 +549,17 @@ export default function App() {
       </section>
 
       {/* 6. Simple 4 Step Process (Existing Section) */}
-      <section id="testimonials" className="py-20 bg-gray-50">
+      <section id="testimonials" className="py-20 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 text-center mb-12">
-            What Our <span className="text-green-600">Clients Say</span>
-          </h2>
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-3xl sm:text-4xl font-extrabold text-gray-900 dark:text-white text-center mb-12"
+          >
+            What Our <span>Clients Say</span>
+          </motion.h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {testimonialsData.map((testimonial, index) => (
               <TestimonialCard key={index} {...testimonial} />
