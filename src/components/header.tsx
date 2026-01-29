@@ -2,6 +2,7 @@
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import ThemeToggle from "@/components/theme-toggle";
 import { FC, useState } from "react";
 
 interface NavLinkProps {
@@ -22,10 +23,9 @@ const NavLink: FC<NavLinkProps> = ({
     href={href}
     className={`
       px-3 py-2 rounded-lg text-sm font-medium transition duration-300 ease-in-out
-      ${
-        isMobile
-          ? "block text-gray-200 hover:bg-green-600 hover:text-white"
-          : "text-gray-300 hover:bg-gray-700 hover:text-white"
+      ${isMobile
+        ? "block text-gray-700 dark:text-gray-200 hover:bg-green-600 hover:text-white"
+        : "text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 hover:text-black dark:hover:text-white"
       }
     `}
     onClick={() => {
@@ -43,7 +43,7 @@ export default function Header() {
   // A helper component for navigation links
 
   return (
-    <header className="bg-[#020617] text-white shadow-xl sticky top-0 z-50">
+    <header className="bg-white dark:bg-[#1a1a2e] text-gray-900 dark:text-white shadow-xl sticky top-0 z-50 transition-colors duration-300">
       {/* <div className="absolute top-[-120px] left-1/2 -translate-x-1/2 w-[600px] h-full bg-green-500/20 blur-[140px] rounded-full pointer-events-none" /> */}
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -52,7 +52,7 @@ export default function Header() {
           <div className="shrink-0">
             <Link
               href="/"
-              className="text-3xl font-extrabold tracking-wider text-green-400 hover:text-green-300 transition duration-300"
+              className="text-3xl font-extrabold tracking-wider text-green-600 dark:text-green-400 hover:text-green-500 dark:hover:text-green-300 transition duration-300"
             >
               <Image
                 src="/logo.jpeg"
@@ -68,33 +68,33 @@ export default function Header() {
           <nav className="hidden md:flex space-x-6 items-center">
             <NavLink href="/services">Services</NavLink>
             <div className="relative group">
-              <button className="px-3 py-2 rounded-lg text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white transition duration-300">
+              <button className="px-3 py-2 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 hover:text-black dark:hover:text-white transition duration-300">
                 Solution
               </button>
 
               {/* Dropdown */}
-              <div className="absolute left-0 z-100 mt-2 w-56 bg-gray-800 rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+              <div className="absolute left-0 z-100 mt-2 w-56 bg-white dark:bg-[#23234a] rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 border border-gray-200 dark:border-white/10">
                 <a
                   href="/solution/ai-ml"
-                  className="block px-4 py-2 text-sm text-gray-200 hover:bg-green-600 rounded-t-xl"
+                  className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-green-600 hover:text-white rounded-t-xl"
                 >
                   AI & ML
                 </a>
                 <a
                   href="/solution/cloud-services"
-                  className="block px-4 py-2 text-sm text-gray-200 hover:bg-green-600"
+                  className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-green-600 hover:text-white"
                 >
                   Cloud Services
                 </a>
                 <a
                   href="/solution/cyber-security"
-                  className="block px-4 py-2 text-sm text-gray-200 hover:bg-green-600"
+                  className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-green-600 hover:text-white"
                 >
                   Cyber Security
                 </a>
                 <a
                   href="/solution/big-data"
-                  className="block px-4 py-2 text-sm text-gray-200 hover:bg-green-600 rounded-b-xl"
+                  className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-green-600 hover:text-white rounded-b-xl"
                 >
                   Big Data
                 </a>
@@ -109,13 +109,16 @@ export default function Header() {
             >
               Start Demo
             </a>
+
+            {/* Theme Toggle */}
+            {/* <ThemeToggle className="p-2 rounded-lg bg-gray-200 dark:bg-white/10 text-gray-800 dark:text-white hover:bg-gray-300 dark:hover:bg-white/15 transition-colors focus:outline-none focus:ring-2 focus:ring-green-500" /> */}
           </nav>
 
           {/* Mobile Menu Button */}
           <div className="md:hidden">
             <button
               type="button"
-              className="p-2 rounded-lg text-gray-400 hover:text-white hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 transition duration-150"
+              className="p-2 rounded-lg text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-green-500 transition duration-150"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-controls="mobile-menu"
               aria-expanded={isMenuOpen ? "true" : "false"}
@@ -134,7 +137,7 @@ export default function Header() {
       {/* Mobile Menu Content */}
       {isMenuOpen && (
         <div className="md:hidden" id="mobile-menu">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-gray-800">
+          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white dark:bg-[#1a1a2e] shadow-xl border-t border-gray-200 dark:border-white/10">
             <NavLink
               href="/services"
               isMobile
@@ -145,37 +148,37 @@ export default function Header() {
             <div>
               <button
                 onClick={() => setIsSolutionOpen(!isSolutionOpen)}
-                className="w-full text-left px-3 py-2 rounded-lg text-sm font-medium text-gray-200 hover:bg-green-600 hover:text-white transition"
+                className="w-full text-left px-3 py-2 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-green-600 hover:text-white transition"
               >
                 Solution
               </button>
 
               {isSolutionOpen && (
-                <div className="ml-4 mt-1 space-y-1">
+                <div className="ml-4 mt-1 space-y-1 border-l-2 border-gray-200 dark:border-gray-700 pl-2">
                   <a
                     href="/solution/ai-ml"
-                    className="block px-3 py-2 text-sm text-gray-300 hover:bg-gray-700 rounded"
+                    className="block px-3 py-2 text-sm text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     AI & ML
                   </a>
                   <a
                     href="/solution/cloud-services"
-                    className="block px-3 py-2 text-sm text-gray-300 hover:bg-gray-700 rounded"
+                    className="block px-3 py-2 text-sm text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     Cloud Services
                   </a>
                   <a
                     href="/solution/cyber-security"
-                    className="block px-3 py-2 text-sm text-gray-300 hover:bg-gray-700 rounded"
+                    className="block px-3 py-2 text-sm text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     Cyber Security
                   </a>
                   <a
                     href="/solution/big-data"
-                    className="block px-3 py-2 text-sm text-gray-300 hover:bg-gray-700 rounded"
+                    className="block px-3 py-2 text-sm text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     Big Data
